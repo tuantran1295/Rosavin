@@ -502,6 +502,7 @@
     if (!layer.hidden) return;
     focusStack.push(document.activeElement);
     layer.hidden = false;
+    syncLayerState();
     const target = $('.close-button', layer) || layer;
     requestAnimationFrame(() => target.focus());
   }
@@ -509,8 +510,14 @@
   function closeLayer(layer) {
     if (layer.hidden) return;
     layer.hidden = true;
+    syncLayerState();
     const previous = focusStack.pop();
     if (previous && document.contains(previous)) previous.focus();
+  }
+
+  // Drag regions are disabled while any dialog is open (see .has-layer in styles.css).
+  function syncLayerState() {
+    document.documentElement.classList.toggle('has-layer', $$('.modal:not([hidden]), .lightbox:not([hidden])').length > 0);
   }
 
   function topLayer() {

@@ -230,6 +230,20 @@ await check('benefits modal opens with all photos loaded', async () => {
   return `${count} photos, ${sources} sources`;
 });
 
+await check('dialog close buttons work (window drag regions are off while a dialog is open)', async () => {
+  for (const id of ['prefs-modal', 'about-modal', 'benefits-modal']) {
+    await win.evaluate((modal) => document.querySelector(modal === 'prefs-modal' ? '#open-prefs' : modal === 'about-modal' ? '#open-about' : '#open-benefits').click(), id);
+    await win.waitForSelector(`#${id}:not([hidden])`);
+    const regions = await win.evaluate(() => [...document.querySelectorAll('.drag')].map((el) => getComputedStyle(el).webkitAppRegion));
+    assert(regions.every((r) => r === 'no-drag'), `${id}: drag regions still active (${regions.join(', ')})`);
+    await win.click(`#${id} .close-button`);
+    await win.waitForSelector(`#${id}`, { state: 'hidden' });
+  }
+  const restored = await win.evaluate(() => getComputedStyle(document.querySelector('.hero-drag')).webkitAppRegion);
+  assert(restored === 'drag', `drag region not restored (${restored})`);
+  return 'preferences, about and benefits close with ×';
+});
+
 await check('closing the window keeps Rosavin running in the menu bar', async () => {
   await app.evaluate(({ BrowserWindow }) => BrowserWindow.getAllWindows()[0].close());
   await waitFor(() => app.evaluate(({ BrowserWindow }) => BrowserWindow.getAllWindows().length === 0));

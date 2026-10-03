@@ -96,6 +96,11 @@ a { color: var(--brand); }
 .sr-defs { position: absolute; width: 0; height: 0; overflow: hidden; }
 .drag { -webkit-app-region: drag; }
 .drag button, .drag a, .drag input { -webkit-app-region: no-drag; }
+/* Window drag regions win over anything stacked above them (Electron), so a dialog's
+   close button inside the top strip would just drag the window. Switch them off while
+   a dialog is open, and mark dialogs as no-drag. */
+.has-layer .drag { -webkit-app-region: no-drag; }
+.modal, .lightbox { -webkit-app-region: no-drag; }
 :focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; border-radius: 8px; }
 .icon { width: 18px; height: 18px; flex: none; }
 
