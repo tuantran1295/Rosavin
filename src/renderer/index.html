@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; base-uri 'none'; form-action 'none'">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>Rosavin</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="../shared/time.js" defer></script>
+  <script src="icons.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <svg class="sr-defs" aria-hidden="true" focusable="false" width="0" height="0">
+    <defs>
+      <linearGradient id="g-gold" x1="0" y1="-330" x2="0" y2="210" gradientUnits="userSpaceOnUse">
+        <stop offset="0" stop-color="#FFEFB5"/>
+        <stop offset="0.42" stop-color="#FAC75B"/>
+        <stop offset="1" stop-color="#EA8A3E"/>
+      </linearGradient>
+      <radialGradient id="g-iris" cx="-30" cy="-42" r="160" gradientUnits="userSpaceOnUse">
+        <stop offset="0" stop-color="#FFF5CC"/>
+        <stop offset="0.42" stop-color="#FDC853"/>
+        <stop offset="0.82" stop-color="#F08C3C"/>
+        <stop offset="1" stop-color="#D65A4D"/>
+      </radialGradient>
+      <linearGradient id="g-ring" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#FFE08A"/>
+        <stop offset="0.6" stop-color="#F5A743"/>
+        <stop offset="1" stop-color="#E2694B"/>
+      </linearGradient>
+      <clipPath id="eye-opening"><path d="M-352 6 C-236 -138 236 -138 352 6 C 232 140 -232 140 -352 6 Z"/></clipPath>
+      <path id="mark-ray" d="M0 -218 C 26 -248 26 -296 0 -336 C -26 -296 -26 -248 0 -218 Z"/>
+      <path id="mark-petal" d="M0 -60 C 22 -41 22 -17 0 0 C -22 -17 -22 -41 0 -60 Z"/>
+      <path id="mark-lash" d="M0 200 C 30 232 30 290 0 330 C -30 290 -30 232 0 200 Z"/>
+      <g id="mark-open">
+        <path d="M-352 6 C-236 -138 236 -138 352 6 C 232 140 -232 140 -352 6 Z" fill="#03140D" fill-opacity="0.32"/>
+        <g clip-path="url(#eye-opening)">
+          <circle r="110" fill="url(#g-iris)"/>
+          <g fill="#0A2A20">
+            <use href="#mark-petal"/>
+            <use href="#mark-petal" transform="rotate(90)"/>
+            <use href="#mark-petal" transform="rotate(180)"/>
+            <use href="#mark-petal" transform="rotate(270)"/>
+            <circle r="21"/>
+          </g>
+          <circle cx="42" cy="-46" r="15" fill="#FFFFFF" opacity="0.92"/>
+        </g>
+        <g fill="url(#g-gold)">
+          <path d="M-370 6 C-250 -218 250 -218 370 6 C 236 -138 -236 -138 -370 6 Z"/>
+          <path d="M-370 6 C-246 200 246 200 370 6 C 232 140 -232 140 -370 6 Z"/>
+        </g>
+      </g>
+    </defs>
+  </svg>
+
+  <div class="app" id="app">
+    <!-- Left: controls ----------------------------------------------------->
+    <main class="panel">
+      <header class="brand drag">
+        <svg class="brand-mark" viewBox="-400 -360 800 590" aria-hidden="true">
+          <g fill="url(#g-gold)">
+            <use href="#mark-ray"/><use href="#mark-ray" transform="rotate(-36)"/><use href="#mark-ray" transform="rotate(36)"/>
+          </g>
+          <use href="#mark-open"/>
+        </svg>
+        <span class="brand-name">Rosavin</span>
+        <span class="brand-tagline" data-i18n="app.tagline">Stay awake, naturally.</span>
+      </header>
+
+      <section class="awake" aria-live="polite">
+        <button class="orb" id="orb" type="button" aria-pressed="false" data-i18n-aria="ui.toggleOn">
+          <span class="orb-glow" aria-hidden="true"></span>
+          <svg class="orb-svg" viewBox="-110 -110 220 220" aria-hidden="true">
+            <circle class="orb-track" r="100"/>
+            <circle class="orb-progress" id="orb-progress" r="100" transform="rotate(-90)"/>
+            <g class="eye" transform="translate(0 12) scale(0.19)">
+              <g class="eye-closed">
+                <g transform="translate(0 -96)">
+                  <path d="M-370 0 C-240 236 240 236 370 0 C 224 155 -224 155 -370 0 Z"/>
+                  <use href="#mark-lash"/>
+                  <use href="#mark-lash" transform="rotate(38)"/>
+                  <use href="#mark-lash" transform="rotate(-38)"/>
+                </g>
+              </g>
+              <g class="eye-open">
+                <g class="eye-rays" fill="url(#g-gold)">
+                  <use class="ray ray-1" href="#mark-ray" transform="rotate(-36)"/>
+                  <use class="ray ray-2" href="#mark-ray"/>
+                  <use class="ray ray-3" href="#mark-ray" transform="rotate(36)"/>
+                </g>
+                <g class="eye-lids"><use href="#mark-open"/></g>
+              </g>
+            </g>
+          </svg>
+        </button>
+        <p class="orb-hint" data-i18n="ui.toggleHint">Click the eye to switch on or off</p>
+        <h1 class="status-title" id="status-title">Sleeping as usual</h1>
+        <p class="status-sub" id="status-sub"></p>
+      </section>
+
+      <section class="controls">
+        <div class="field-label" id="duration-label" data-i18n="ui.durationLabel">Keep awake for</div>
+        <div class="chips" id="chips" role="group" aria-labelledby="duration-label"></div>
+
+        <label class="setting-card" for="keep-screen-on">
+          <span class="setting-icon" data-icon="monitor"></span>
+          <span class="setting-text">
+            <span class="setting-title" data-i18n="ui.keepScreenOn">Keep screen on</span>
+            <span class="setting-hint" data-i18n="ui.keepScreenOnHint"></span>
+          </span>
+          <input class="switch" type="checkbox" id="keep-screen-on" role="switch">
+        </label>
+      </section>
+
+      <footer class="panel-footer">
+        <p class="tray-hint"><span data-icon="eye"></span><span id="tray-hint"></span></p>
+        <div class="footer-row">
+          <label class="check">
+            <input type="checkbox" id="show-at-startup">
+            <span data-i18n="ui.showAtStartup">Show this window when Rosavin starts</span>
+          </label>
+          <div class="footer-actions">
+            <div class="lang-switch" id="lang-switch" role="group" data-i18n-aria="ui.language"></div>
+            <button class="icon-button" id="open-prefs" type="button" data-icon="sliders" data-i18n-title="ui.preferences" data-i18n-aria="ui.preferences"></button>
+            <button class="icon-button" id="open-about" type="button" data-icon="info" data-i18n-title="ui.about" data-i18n-aria="ui.about"></button>
+          </div>
+        </div>
+      </footer>
+    </main>
+
+    <!-- Right: the golden root ------------------------------------------>
+    <aside class="hero" aria-labelledby="hero-title">
+      <img class="hero-photo" src="images/rhodiola/hero-golden-flowers.jpg" alt="" draggable="false">
+      <div class="hero-shade" aria-hidden="true"></div>
+      <div class="hero-drag drag" aria-hidden="true"></div>
+      <div class="hero-content">
+        <p class="kicker" data-i18n="ui.heroKicker">Meet the golden root</p>
+        <h2 class="hero-title" id="hero-title" data-i18n="ui.heroTitle">Rhodiola rosea</h2>
+        <p class="hero-text" data-i18n="ui.heroText"></p>
+        <button class="cta" id="open-benefits" type="button">
+          <span data-i18n="ui.benefitsButton">Discover the benefits</span>
+          <span data-icon="arrowRight"></span>
+        </button>
+      </div>
+      <button class="hero-credit" id="hero-credit" type="button"></button>
+    </aside>
+  </div>
+
+  <!-- Rhodiola rosea modal ----------------------------------------------->
+  <div class="modal" id="benefits-modal" hidden>
+    <div class="modal-backdrop" data-close></div>
+    <div class="dialog dialog-xl" role="dialog" aria-modal="true" aria-labelledby="benefits-title">
+      <header class="benefits-header">
+        <img class="benefits-banner" src="images/rhodiola/banner-blue-leaves.jpg" alt="" draggable="false">
+        <div class="benefits-heading">
+          <h2 id="benefits-title" class="benefits-title">Rhodiola rosea</h2>
+          <p class="benefits-aka" id="benefits-aka"></p>
+          <p class="benefits-lead" id="benefits-lead"></p>
+        </div>
+        <button class="close-button" type="button" data-close data-icon="close" data-i18n-aria="ui.close" data-i18n-title="ui.close"></button>
+      </header>
+      <nav class="tabs" id="benefits-tabs" role="tablist"></nav>
+      <div class="benefits-body" id="benefits-body"></div>
+    </div>
+  </div>
+
+  <!-- Preferences ---------------------------------------------------------->
+  <div class="modal" id="prefs-modal" hidden>
+    <div class="modal-backdrop" data-close></div>
+    <div class="dialog dialog-md" role="dialog" aria-modal="true" aria-labelledby="prefs-title">
+      <header class="dialog-header">
+        <h2 id="prefs-title" data-i18n="prefs.title">Preferences</h2>
+        <button class="close-button" type="button" data-close data-icon="close" data-i18n-aria="ui.close" data-i18n-title="ui.close"></button>
+      </header>
+      <div class="dialog-body prefs" id="prefs-body"></div>
+    </div>
+  </div>
+
+  <!-- About ---------------------------------------------------------------->
+  <div class="modal" id="about-modal" hidden>
+    <div class="modal-backdrop" data-close></div>
+    <div class="dialog dialog-sm about" role="dialog" aria-modal="true" aria-labelledby="about-title">
+      <button class="close-button" type="button" data-close data-icon="close" data-i18n-aria="ui.close" data-i18n-title="ui.close"></button>
+      <img class="about-icon" src="images/brand/icon-256.png" alt="" width="104" height="104">
+      <h2 id="about-title" class="about-name">Rosavin</h2>
+      <p class="about-version" id="about-version"></p>
+      <p class="about-tagline" data-i18n="app.tagline"></p>
+      <p data-i18n="about.description"></p>
+      <p class="about-meta" id="about-built"></p>
+      <p class="about-meta" data-i18n="about.license"></p>
+      <p class="about-meta" data-i18n="about.credits"></p>
+      <p class="about-meta about-disclaimer" data-i18n="about.disclaimer"></p>
+      <div class="about-actions">
+        <button class="button" type="button" id="about-quit" data-icon="power"><span data-i18n="tray.quit">Quit Rosavin</span></button>
+        <button class="button button-primary" type="button" data-close><span data-i18n="ui.close">Close</span></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Photo lightbox ------------------------------------------------------->
+  <div class="lightbox" id="lightbox" hidden>
+    <div class="modal-backdrop" data-close></div>
+    <figure class="lightbox-figure" role="dialog" aria-modal="true" aria-labelledby="lightbox-caption">
+      <img id="lightbox-img" src="" alt="">
+      <figcaption>
+        <span id="lightbox-caption"></span>
+        <button class="link-button" type="button" id="lightbox-credit"></button>
+      </figcaption>
+      <button class="close-button" type="button" data-close data-icon="close" data-i18n-aria="ui.close" data-i18n-title="ui.close"></button>
+    </figure>
+  </div>
+</body>
+</html>
