@@ -1,11 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36">
-  <!-- Menu bar template icon (inactive): closed, sleeping eye with lashes. Black + alpha only. -->
-  <g transform="translate(18 10.6)" fill="#000">
-    <path d="M-17.4 0 C-11.3 11.4 11.3 11.4 17.4 0 C 10.6 6.6 -10.6 6.6 -17.4 0 Z"/>
-    <g>
-      <path id="l" d="M0 10.2 C 2.1 12.2 2.1 15.4 0 18.1 C -2.1 15.4 -2.1 12.2 0 10.2 Z"/>
-      <use href="#l" transform="rotate(38)"/>
-      <use href="#l" transform="rotate(-38)"/>
-    </g>
+  <!-- Menu bar template icon (off): the same sunflower drawn as an outline. Black + alpha only. -->
+  <defs><path id="p" d="M0 -9.6 C2.42 -10.9 2.55 -14.06 0 -16.8 C-2.55 -14.06 -2.42 -10.9 0 -9.6Z"/></defs>
+  <g transform="translate(18 18)" fill="none" stroke="#000" stroke-width="1.9" stroke-linejoin="round">
+    <use href="#p" transform="rotate(0)"/><use href="#p" transform="rotate(36)"/><use href="#p" transform="rotate(72)"/><use href="#p" transform="rotate(108)"/><use href="#p" transform="rotate(144)"/><use href="#p" transform="rotate(180)"/><use href="#p" transform="rotate(216)"/><use href="#p" transform="rotate(252)"/><use href="#p" transform="rotate(288)"/><use href="#p" transform="rotate(324)"/>
+    <circle r="6.3"/>
   </g>
 </svg>

@@ -30,7 +30,9 @@
   --switch-off: #D8CCB6;
   --orb-bg: radial-gradient(circle at 50% 42%, #FFFFFF 0%, #F6EEDF 58%, #EBDDC4 100%);
   --orb-ring: rgba(16, 38, 30, 0.09);
-  --orb-closed: #8FA399;
+  --sf-sleep-back: #B9C5BD;
+  --sf-sleep-front: #9EB1A7;
+  --sf-sleep-disc: #7D8F86;
   --shadow-sm: 0 1px 2px rgba(16, 38, 30, 0.08);
   --shadow-md: 0 8px 24px rgba(16, 38, 30, 0.12);
   --shadow-lg: 0 24px 70px rgba(5, 20, 14, 0.35);
@@ -64,7 +66,9 @@
     --switch-off: #2D4A3F;
     --orb-bg: radial-gradient(circle at 50% 40%, #1C4235 0%, #12302A 55%, #0C231C 100%);
     --orb-ring: rgba(246, 238, 220, 0.08);
-    --orb-closed: #6F8B7F;
+    --sf-sleep-back: #3D584D;
+    --sf-sleep-front: #557265;
+    --sf-sleep-disc: #2C443A;
     --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
     --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.35);
     --shadow-lg: 0 24px 70px rgba(0, 0, 0, 0.55);
@@ -167,15 +171,17 @@ a { color: var(--brand); }
 .is-active .orb-progress { opacity: 1; }
 .is-indefinite .orb-progress { stroke-dashoffset: 0; }
 
-.eye-closed { fill: var(--orb-closed); transition: opacity 0.35s var(--ease), transform 0.5s var(--ease); transform-box: fill-box; transform-origin: center; }
-.eye-open .eye-lids { transform-box: fill-box; transform-origin: center; transform: scaleY(0.08); opacity: 0; transition: transform 0.55s var(--ease), opacity 0.3s; }
-.eye-rays .ray { opacity: 0; transition: opacity 0.4s var(--ease); }
-.is-active .eye-closed { opacity: 0; transform: scaleY(0.4) translateY(-40px); }
-.is-active .eye-open .eye-lids { transform: scaleY(1); opacity: 1; }
-.is-active .eye-rays .ray { opacity: 1; }
-.is-active .eye-rays .ray-1 { transition-delay: 0.18s; }
-.is-active .eye-rays .ray-2 { transition-delay: 0.26s; }
-.is-active .eye-rays .ray-3 { transition-delay: 0.34s; }
+/* Sunflower: folded and muted while off, blooming and gold while on. */
+.sf-sleep-back { fill: var(--sf-sleep-back); }
+.sf-sleep-front { fill: var(--sf-sleep-front); }
+.sf-sleep-disc { fill: var(--sf-sleep-disc); }
+.flower-sleep, .flower-bloom, .flower-spin { transform-box: fill-box; transform-origin: center; }
+.flower-sleep { transition: opacity 0.4s var(--ease), transform 0.7s var(--ease); }
+.flower-bloom { opacity: 0; transform: scale(0.62) rotate(-35deg); transition: opacity 0.45s var(--ease), transform 0.9s cubic-bezier(0.34, 1.4, 0.64, 1); }
+.is-active .flower-sleep { opacity: 0; transform: scale(1.12); }
+.is-active .flower-bloom { opacity: 1; transform: scale(1) rotate(0deg); }
+.is-active .flower-spin { animation: sf-spin 140s linear infinite; }
+@keyframes sf-spin { to { transform: rotate(360deg); } }
 
 .orb-hint { margin-top: 10px; font-size: 11.5px; color: var(--text-3); }
 .status-title { margin-top: 10px; font-family: var(--font-serif); font-size: 25px; line-height: 1.2; color: var(--text); }

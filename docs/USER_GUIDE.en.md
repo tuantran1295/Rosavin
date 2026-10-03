@@ -63,31 +63,31 @@ Rosavin does not change your system settings; it simply asks macOS or Windows to
 1. Run the installer **Rosavin Setup 1.0.0.exe**.
 2. If Microsoft Defender SmartScreen shows *Windows protected your PC*, click **More info › Run anyway** (the installer is not code-signed).
 3. Choose the install location (the default is fine) and finish the wizard. Rosavin creates Start menu and desktop shortcuts.
-4. Rosavin appears in the **system tray**, next to the clock. If you don't see it, click the **^** arrow to show hidden icons, then drag the eye icon onto the taskbar to keep it visible.
+4. Rosavin appears in the **system tray**, next to the clock. If you don't see it, click the **^** arrow to show hidden icons, then drag the sunflower icon onto the taskbar to keep it visible.
 
 ## Your first minute
 
-When Rosavin starts for the first time, its window opens and an **eye icon** appears in the menu bar (top-right of the screen on a Mac) or in the system tray (bottom-right on Windows).
+When Rosavin starts for the first time, its window opens and a **sunflower icon** appears in the menu bar (top-right of the screen on a Mac) or in the system tray (bottom-right on Windows).
 
 ![The Rosavin window when it is off](images/screenshots/en/01-main-off.jpg)
 
-1. Click the big **closed eye** in the window. It opens, glows gold, and Rosavin says **Staying awake**. Your computer will now stay awake.
-2. Click it again to switch Rosavin off. The eye closes and your computer sleeps normally again.
+1. Click the big **grey sunflower** in the window. It blooms in gold, and Rosavin says **Staying awake**. Your computer will now stay awake.
+2. Click it again to switch Rosavin off. The sunflower folds its petals and your computer sleeps normally again.
 3. Close the window whenever you like. **Rosavin keeps running in the menu bar**, so you can control it from there.
 
 > Tip: if you don't want this window every time Rosavin starts, untick **Show this window at startup** at the bottom of the window.
 
 ## The menu bar icon
 
-The eye icon shows Rosavin's state at a glance:
+The sunflower icon shows Rosavin's state at a glance:
 
-![The menu bar icon when Rosavin is off (closed eye) and on (open eye with countdown), in light and dark menu bars](images/screenshots/en/04-menubar-icons.jpg)
+![The menu bar icon when Rosavin is off (outline sunflower) and on (filled sunflower with countdown), in light and dark menu bars](images/screenshots/en/04-menubar-icons.jpg)
 
 | Icon | State |
 | --- | --- |
-| **Closed eye** with lashes | Off: your computer sleeps normally |
-| **Open eye** with three rays | On: your computer stays awake |
-| **Open eye + `38m`** | On with a timer; 38 minutes remaining (macOS) |
+| **Outline sunflower** | Off: your computer sleeps normally |
+| **Filled sunflower** (seeded centre) | On: your computer stays awake |
+| **Filled sunflower + `38m`** | On with a timer; 38 minutes remaining (macOS) |
 
 **What clicking does:**
 
@@ -118,7 +118,7 @@ Open the window from the menu (**Open Rosavin…**) or by opening the app again 
 
 ![The Rosavin window while a one-hour session is running](images/screenshots/en/02-main-on.jpg)
 
-1. **The eye button.** Click it to switch Rosavin on or off. When a timer is running, the golden **ring** around it empties as time passes.
+1. **The sunflower button.** Click it to switch Rosavin on or off. When a timer is running, the golden **ring** around it empties as time passes.
 2. **Status.** *Staying awake* with the end time and the time left, for example *Until 2:50 PM · 38 min left*, or *Sleeping as usual* when Rosavin is off.
 3. **Keep awake for.** Quick durations: **∞** (until you turn it off), **15m**, **30m**, **1h**, **2h**, **5h**. Click one to start a session right away; click the highlighted one again to stop. When Rosavin is off, your default duration has a thin outline.
 4. **Keep screen on.** Choose whether the display stays on, or only the system.
@@ -235,7 +235,7 @@ To quit, choose **Quit Rosavin** in the menu, click **Quit Rosavin** in the Abou
 
 ## Troubleshooting & FAQ
 
-**I can't see the eye icon in the menu bar.**
+**I can't see the sunflower icon in the menu bar.**
 On MacBooks with a notch, menu bar icons can hide behind it when the menu bar is crowded. Quit a few menu bar apps or use a smaller font size for menu bar items. If you use a menu bar organiser (such as Bartender or Ice), check its hidden section. You can always open Rosavin's window from Applications.
 
 **My MacBook still sleeps when I close the lid.**

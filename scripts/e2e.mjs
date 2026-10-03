@@ -120,7 +120,7 @@ await check('tray icon is created', async () => {
   return `bounds ${JSON.stringify(info.bounds)}`;
 });
 
-await check('clicking the eye keeps the display awake', async () => {
+await check('clicking the sunflower keeps the display awake', async () => {
   await win.click('#orb');
   const s = await waitFor(async () => {
     const st = await state();

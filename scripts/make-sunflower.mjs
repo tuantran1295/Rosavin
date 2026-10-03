@@ -1,0 +1,193 @@
+#!/usr/bin/env node
+// Generates the sunflower artwork used across Rosavin's brand:
+//   assets/brand/rosavin-mark.svg        golden sunflower (dark backgrounds)
+//   assets/brand/rosavin-mark-light.svg  deeper-toned sunflower (light backgrounds)
+//   assets/brand/rosavin-icon.svg        macOS app icon (emerald squircle)
+//   assets/brand/tray-active.svg         menu bar template icon, on  (filled flower)
+//   assets/brand/tray-inactive.svg       menu bar template icon, off (outline flower)
+//   assets/brand/tray-win-*.svg          Windows tray badges
+//   src/renderer/index.html              UI <defs> between the sunflower:start/end markers
+//
+//   node scripts/make-sunflower.mjs && npm run assets
+//
+// Geometry: two rings of lance-shaped petals around a brown disc whose seeds
+// follow the golden-angle (phyllotaxis) spiral of a real sunflower head.
+
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+const out = (f) => path.join(root, 'assets', 'brand', f);
+const n = (v) => String(Math.round(v * 100) / 100);
+const GOLDEN_ANGLE = 137.50776;
+
+/** A petal pointing up from radius r1 to r2 with half-width w (local coordinates). */
+function petal(r1, r2, w) {
+  const L = r2 - r1;
+  return `M0 ${n(-r1)} C${n(w * 0.95)} ${n(-(r1 + L * 0.18))} ${n(w)} ${n(-(r1 + L * 0.62))} 0 ${n(-r2)} ` +
+    `C${n(-w)} ${n(-(r1 + L * 0.62))} ${n(-w * 0.95)} ${n(-(r1 + L * 0.18))} 0 ${n(-r1)}Z`;
+}
+
+function ring(count, offsetDeg, href) {
+  return Array.from({ length: count }, (_, i) => `<use href="#${href}" transform="rotate(${n(offsetDeg + (360 / count) * i)})"/>`).join('');
+}
+
+function seeds(count, maxRadius, minDot, maxDot) {
+  const c = maxRadius / Math.sqrt(count);
+  return Array.from({ length: count }, (_, i) => {
+    const k = i + 1;
+    const a = (k * GOLDEN_ANGLE * Math.PI) / 180;
+    const r = c * Math.sqrt(k);
+    const t = k / count;
+    return `<circle cx="${n(r * Math.cos(a))}" cy="${n(r * Math.sin(a))}" r="${n(minDot + (maxDot - minDot) * t)}" opacity="${n(0.95 - 0.6 * t)}"/>`;
+  }).join('');
+}
+
+// ------------------------------------------------------------ brand flower
+// Coordinates: centred on (0, 0), petals reach radius 350.
+const P = { back: [150, 350, 64], front: [138, 318, 58], disc: 158 };
+
+function flowerDefs(id, palette) {
+  return `
+    <linearGradient id="${id}-back" x1="0" y1="${-P.back[0]}" x2="0" y2="${-P.back[1]}" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="${palette.back[0]}"/><stop offset="0.55" stop-color="${palette.back[1]}"/><stop offset="1" stop-color="${palette.back[2]}"/>
+    </linearGradient>
+    <linearGradient id="${id}-front" x1="0" y1="${-P.front[0]}" x2="0" y2="${-P.front[1]}" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="${palette.front[0]}"/><stop offset="0.45" stop-color="${palette.front[1]}"/><stop offset="1" stop-color="${palette.front[2]}"/>
+    </linearGradient>
+    <radialGradient id="${id}-disc" cx="-30" cy="-40" r="${P.disc + 40}" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#7C4B22"/><stop offset="0.55" stop-color="#4C2B12"/><stop offset="1" stop-color="#2A1608"/>
+    </radialGradient>
+    <radialGradient id="${id}-core" cx="0" cy="0" r="95" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFD978" stop-opacity="0.55"/><stop offset="1" stop-color="#FFD978" stop-opacity="0"/>
+    </radialGradient>
+    <path id="${id}-pb" d="${petal(...P.back)}" fill="url(#${id}-back)"${palette.outline ? ` stroke="${palette.outline}" stroke-width="3"` : ''}/>
+    <g id="${id}-pf">
+      <path d="${petal(...P.front)}" fill="url(#${id}-front)"${palette.outline ? ` stroke="${palette.outline}" stroke-width="3"` : ''}/>
+      <path d="M0 ${-P.front[0] - 18} L0 ${-P.front[1] + 46}" stroke="${palette.vein}" stroke-width="4" stroke-linecap="round" opacity="0.35"/>
+    </g>`;
+}
+
+function flowerBody(id) {
+  return `
+  <g class="sf-back">${ring(16, 0, `${id}-pb`)}</g>
+  <g class="sf-front">${ring(16, 11.25, `${id}-pf`)}</g>
+  <g class="sf-disc">
+    <circle r="${P.disc}" fill="url(#${id}-disc)"/>
+    <circle r="${P.disc - 3}" fill="none" stroke="#FAC75B" stroke-opacity="0.45" stroke-width="5"/>
+    <g fill="#FFD27A">${seeds(150, P.disc - 18, 3.4, 6.2)}</g>
+    <circle r="95" fill="url(#${id}-core)"/>
+  </g>`;
+}
+
+const GOLD = { back: ['#B4561F', '#E3842F', '#F3A63F'], front: ['#E3872B', '#F9BE47', '#FFE8A3'], vein: '#C66E1E' };
+const DEEP = { back: ['#9C4A18', '#CB6C22', '#E08E2E'], front: ['#D07A20', '#EBA232', '#F5BE4E'], vein: '#A85A14', outline: 'rgba(110,55,10,0.22)' };
+
+function markSvg(id, palette, note) {
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="-380 -380 760 760" role="img" aria-label="Rosavin">
+  <!-- Rosavin mark: a golden sunflower, always facing the sun (${note}). Generated by scripts/make-sunflower.mjs -->
+  <defs>${flowerDefs(id, palette)}
+  </defs>${flowerBody(id)}
+</svg>
+`;
+}
+
+function iconSvg() {
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+  <!-- Rosavin app icon. Generated by scripts/make-sunflower.mjs -->
+  <defs>
+    <linearGradient id="bg" x1="0.1" y1="0" x2="0.9" y2="1">
+      <stop offset="0" stop-color="#23805F"/><stop offset="0.5" stop-color="#124A37"/><stop offset="1" stop-color="#07231A"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="512" cy="512" r="430" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFC94D" stop-opacity="0.5"/><stop offset="0.55" stop-color="#FFB547" stop-opacity="0.12"/><stop offset="1" stop-color="#FFB547" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="125%"><feDropShadow dx="0" dy="12" stdDeviation="14" flood-color="#000" flood-opacity="0.35"/></filter>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#021009" flood-opacity="0.5"/></filter>
+    <clipPath id="sq"><rect x="100" y="100" width="824" height="824" rx="185"/></clipPath>${flowerDefs('ic', GOLD)}
+  </defs>
+  <g filter="url(#shadow)"><rect x="100" y="100" width="824" height="824" rx="185" fill="url(#bg)"/></g>
+  <g clip-path="url(#sq)">
+    <rect x="100" y="100" width="824" height="824" fill="url(#glow)"/>
+    <ellipse cx="400" cy="165" rx="470" ry="215" fill="#FFFFFF" opacity="0.06"/>
+  </g>
+  <g transform="translate(512 512) scale(0.93)" filter="url(#soft)">${flowerBody('ic')}
+  </g>
+</svg>
+`;
+}
+
+// ------------------------------------------------------------- tray icons
+// 36-unit grid (rendered at 18 / 36 / 54 px). Template images: black + alpha.
+function trayActive() {
+  // Seed dots punched out of the disc make it read as a sunflower, not a sun.
+  const holes = [[0, 0, 0.95], ...Array.from({ length: 6 }, (_, i) => {
+    const a = (i * 60 + 30) * Math.PI / 180;
+    return [3.9 * Math.cos(a), 3.9 * Math.sin(a), 0.85];
+  })].map(([x, y, r]) => `<circle cx="${n(x)}" cy="${n(y)}" r="${r}" fill="#000"/>`).join('');
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36">
+  <!-- Menu bar template icon (on): a sunflower in full bloom. Black + alpha only. -->
+  <defs>
+    <path id="p" d="${petal(9.1, 17.5, 2.35)}"/>
+    <mask id="seeds"><rect x="-18" y="-18" width="36" height="36" fill="#fff"/>${holes}</mask>
+  </defs>
+  <g transform="translate(18 18)" fill="#000">
+    ${ring(16, 0, 'p')}
+    <circle r="7.4" mask="url(#seeds)"/>
+  </g>
+</svg>
+`;
+}
+
+function trayInactive() {
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36">
+  <!-- Menu bar template icon (off): the same sunflower drawn as an outline. Black + alpha only. -->
+  <defs><path id="p" d="${petal(9.6, 16.8, 2.55)}"/></defs>
+  <g transform="translate(18 18)" fill="none" stroke="#000" stroke-width="1.9" stroke-linejoin="round">
+    ${ring(10, 0, 'p')}
+    <circle r="6.3"/>
+  </g>
+</svg>
+`;
+}
+
+function trayWin(active) {
+  const bg = active ? ['#23805F', '#0B3125'] : ['#5E6B66', '#2E3633'];
+  const flower = active
+    ? `<defs><path id="p" d="${petal(5.6, 12.6, 2.15)}"/><linearGradient id="g" x1="0" y1="-5" x2="0" y2="-13" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#F3A63F"/><stop offset="1" stop-color="#FFE59A"/></linearGradient></defs>
+  <g transform="translate(16 16)"><g fill="url(#g)">${ring(12, 0, 'p')}</g><circle r="4.6" fill="#4C2B12" stroke="#FAC75B" stroke-width="1"/></g>`
+    : `<defs><path id="p" d="${petal(6.2, 12.2, 2.1)}"/></defs>
+  <g transform="translate(16 16)" fill="none" stroke="#E9EFEC" stroke-width="1.35" stroke-linejoin="round">${ring(10, 0, 'p')}<circle r="3.9"/></g>`;
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Windows tray icon (${active ? 'on: golden sunflower on an emerald badge' : 'off: outline sunflower on a slate badge'}) -->
+  <defs><linearGradient id="b" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${bg[0]}"/><stop offset="1" stop-color="${bg[1]}"/></linearGradient></defs>
+  <rect x="1" y="1" width="30" height="30" rx="7.5" fill="url(#b)"/>
+  ${flower}
+</svg>
+`;
+}
+
+// ---------------------------------------------- UI defs (index.html <defs>)
+// #sf-gold: the blooming flower. #sf-sleep: a folded, muted flower for the "off" state (coloured by CSS).
+function uiDefs() {
+  return `<!-- Sunflower artwork for the UI. Generated by scripts/make-sunflower.mjs -->${flowerDefs('sfg', GOLD)}
+      <path id="sfs-pb" class="sf-sleep-back" d="${petal(150, 262, 50)}"/>
+      <path id="sfs-pf" class="sf-sleep-front" d="${petal(138, 240, 46)}"/>
+      <g id="sf-gold">${flowerBody('sfg').replace(/\n\s*/g, '')}</g>
+      <g id="sf-sleep"><g class="sf-back">${ring(16, 0, 'sfs-pb')}</g><g class="sf-front">${ring(16, 11.25, 'sfs-pf')}</g><circle class="sf-sleep-disc" r="${P.disc}"/></g>`;
+}
+
+fs.writeFileSync(out('rosavin-mark.svg'), markSvg('rm', GOLD, 'for dark backgrounds'));
+fs.writeFileSync(out('rosavin-mark-light.svg'), markSvg('rl', DEEP, 'for light backgrounds'));
+fs.writeFileSync(out('rosavin-icon.svg'), iconSvg());
+fs.writeFileSync(out('tray-active.svg'), trayActive());
+fs.writeFileSync(out('tray-inactive.svg'), trayInactive());
+fs.writeFileSync(out('tray-win-active.svg'), trayWin(true));
+fs.writeFileSync(out('tray-win-inactive.svg'), trayWin(false));
+const indexHtml = path.join(root, 'src', 'renderer', 'index.html');
+const html = fs.readFileSync(indexHtml, 'utf8');
+const marked = /(<!-- sunflower:start -->)[\s\S]*?(<!-- sunflower:end -->)/;
+if (marked.test(html)) fs.writeFileSync(indexHtml, html.replace(marked, `$1${uiDefs()}\n      $2`));
+else console.warn('! index.html has no sunflower markers; UI defs not updated');
+console.log('✓ Sunflower artwork written to assets/brand/');

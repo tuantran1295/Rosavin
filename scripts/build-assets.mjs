@@ -130,7 +130,7 @@ function svgInner(svg) {
 
 const markDark = read(brand('rosavin-mark.svg'));
 const markLight = read(brand('rosavin-mark-light.svg'));
-const MARK_VIEWBOX = { x: -400, y: -360, w: 800, h: 590 };
+const MARK_VIEWBOX = { x: -380, y: -380, w: 760, h: 760 }; // square sunflower, centred on (0, 0)
 
 function lockup({ variant, tagline }) {
   const isLight = variant === 'light';
@@ -140,14 +140,14 @@ function lockup({ variant, tagline }) {
     ? textPath(path.join(fontsDir, 'BeVietnamPro-SemiBold.ttf'), 'STAY AWAKE, NATURALLY', 46, { letterSpacing: 9 })
     : null;
 
-  const markH = 300; // rendered mark height
+  const markH = 290; // rendered mark height
   const markScale = markH / MARK_VIEWBOX.h;
   const markW = MARK_VIEWBOX.w * markScale;
   const gap = 46;
   const wordX = markW + gap - word.bbox.x1;
-  // Align the wordmark's x-height band with the eye's centre line.
-  const eyeCenterY = (0 - MARK_VIEWBOX.y) * markScale; // y of the eye centre inside the mark box
-  const baseline = eyeCenterY + (tag ? 34 : 62);
+  // Align the wordmark with the centre of the flower.
+  const markCenterY = (0 - MARK_VIEWBOX.y) * markScale; // y of the flower centre inside the mark box
+  const baseline = markCenterY + (tag ? 30 : 58);
   const width = wordX + Math.max(word.width, tag ? tag.width : 0) + 24;
   const height = tag ? markH + 10 : markH;
   const ink = isLight ? '#0F3D2E' : '#FFF6E2';

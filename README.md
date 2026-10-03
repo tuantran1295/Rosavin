@@ -28,20 +28,20 @@
 
 Rosavin stops your computer from **going to sleep, dimming the screen or starting the screen saver** while you need it: presentations, long downloads, builds, video calls, reading a long article or monitoring a dashboard.
 
-It lives in the macOS menu bar (or the Windows system tray) as a small eye:
+It lives in the macOS menu bar (or the Windows system tray) as a small sunflower:
 
 | Icon | Meaning |
 | --- | --- |
-| Closed eye | **Off.** Your computer sleeps normally. |
-| Open eye with rays | **On.** Rosavin keeps your computer awake. |
+| Outline sunflower | **Off.** Your computer sleeps normally. |
+| Golden sunflower in bloom | **On.** Rosavin keeps your computer awake. |
 
-**Click the eye** to switch Rosavin on or off. **Right-click** it (or **⌘-click** on a Mac) for timers and settings.
+**Click the sunflower** to switch Rosavin on or off. **Right-click** it (or **⌘-click** on a Mac) for timers and settings.
 
 The app is named after **rosavin**, the signature compound of *Rhodiola rosea*, the Arctic "golden root" traditionally used to fight fatigue. A button in the app opens a richly illustrated guide to the plant's health benefits and how it helps people stay awake.
 
 ## Features
 
-- **One-click keep-awake** from the menu bar / system tray, with an animated open/closed eye.
+- **One-click keep-awake** from the menu bar / system tray, with a sunflower that blooms when Rosavin is on and folds its petals when it's off.
 - **Timers:** keep awake indefinitely or for 5 min, 10 min, 15 min, 30 min, 1 h, 2 h, 3 h, 5 h or 8 h. Rosavin switches itself off and can notify you.
 - **Countdown next to the icon** (macOS), e.g. `38m`.
 - **Keep screen on** (no dimming, no screen saver) **or system only** (the display may sleep, the computer keeps running for downloads and renders).
@@ -86,7 +86,7 @@ Download the disk image that matches your Mac from the **Releases** page of this
      xattr -dr com.apple.quarantine /Applications/Rosavin.app
      ```
 
-4. Look for the eye icon in the menu bar. That's it.
+4. Look for the sunflower icon in the menu bar. That's it.
 
 ### Windows 10 / 11
 
@@ -96,7 +96,7 @@ Build the installer with `npm run dist:win` (see [Build installers](#build-insta
 
 | To… | Do this |
 | --- | --- |
-| Turn Rosavin on / off | Click the eye icon in the menu bar / tray, or the big eye in the window |
+| Turn Rosavin on / off | Click the sunflower icon in the menu bar / tray, or the big sunflower in the window |
 | Keep awake for a set time | Right-click the icon › **Turn On For** › pick a duration, or click a chip (∞, 15m, 30m, 1h, 2h, 5h) in the window |
 | Let the display sleep but keep the computer running | Untick **Keep Screen On** (menu) or switch it off in the window |
 | Open the window | Right-click the icon › **Open Rosavin…** |
@@ -203,7 +203,7 @@ npm install
 npm start
 ```
 
-The first `npm start` downloads the Electron runtime (about 100 MB). Rosavin opens its window and adds the eye icon to the menu bar / system tray.
+The first `npm start` downloads the Electron runtime (about 100 MB). Rosavin opens its window and adds the sunflower icon to the menu bar / system tray.
 
 | Command | What it does |
 | --- | --- |

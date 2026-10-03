@@ -1,15 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36">
-  <!-- Menu bar template icon (active): open eye with petal rays. Black + alpha only. -->
+  <!-- Menu bar template icon (on): a sunflower in full bloom. Black + alpha only. -->
   <defs>
-    <clipPath id="o"><path d="M-16 0.5 C-10.4 -6.4 10.4 -6.4 16 0.5 C 10.2 6.9 -10.2 6.9 -16 0.5 Z"/></clipPath>
-    <mask id="hl"><rect x="-20" y="-20" width="40" height="40" fill="#fff"/><circle cx="1.9" cy="-1.5" r="1.45" fill="#000"/></mask>
+    <path id="p" d="M0 -9.1 C2.23 -10.61 2.35 -14.31 0 -17.5 C-2.35 -14.31 -2.23 -10.61 0 -9.1Z"/>
+    <mask id="seeds"><rect x="-18" y="-18" width="36" height="36" fill="#fff"/><circle cx="0" cy="0" r="0.95" fill="#000"/><circle cx="3.38" cy="1.95" r="0.85" fill="#000"/><circle cx="0" cy="3.9" r="0.85" fill="#000"/><circle cx="-3.38" cy="1.95" r="0.85" fill="#000"/><circle cx="-3.38" cy="-1.95" r="0.85" fill="#000"/><circle cx="0" cy="-3.9" r="0.85" fill="#000"/><circle cx="3.38" cy="-1.95" r="0.85" fill="#000"/></mask>
   </defs>
-  <g transform="translate(18 22.2)" fill="#000">
-    <path id="r" d="M0 -11.6 C 2 -13.6 2 -16.9 0 -19.4 C -2 -16.9 -2 -13.6 0 -11.6 Z"/>
-    <use href="#r" transform="rotate(-40)"/>
-    <use href="#r" transform="rotate(40)"/>
-    <path d="M-17.2 0.5 C-11.4 -10.9 11.4 -10.9 17.2 0.5 C 10.4 -6.4 -10.4 -6.4 -17.2 0.5 Z"/>
-    <path d="M-17.2 0.5 C-11.2 10.4 11.2 10.4 17.2 0.5 C 10.2 6.9 -10.2 6.9 -17.2 0.5 Z"/>
-    <g clip-path="url(#o)"><circle cx="0" cy="0.4" r="4.9" mask="url(#hl)"/></g>
+  <g transform="translate(18 18)" fill="#000">
+    <use href="#p" transform="rotate(0)"/><use href="#p" transform="rotate(22.5)"/><use href="#p" transform="rotate(45)"/><use href="#p" transform="rotate(67.5)"/><use href="#p" transform="rotate(90)"/><use href="#p" transform="rotate(112.5)"/><use href="#p" transform="rotate(135)"/><use href="#p" transform="rotate(157.5)"/><use href="#p" transform="rotate(180)"/><use href="#p" transform="rotate(202.5)"/><use href="#p" transform="rotate(225)"/><use href="#p" transform="rotate(247.5)"/><use href="#p" transform="rotate(270)"/><use href="#p" transform="rotate(292.5)"/><use href="#p" transform="rotate(315)"/><use href="#p" transform="rotate(337.5)"/>
+    <circle r="7.4" mask="url(#seeds)"/>
   </g>
 </svg>

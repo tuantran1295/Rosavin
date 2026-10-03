@@ -63,31 +63,31 @@ Rosavin không thay đổi cài đặt hệ thống. Ứng dụng chỉ yêu c�
 1. Chạy trình cài đặt **Rosavin Setup 1.0.0.exe**.
 2. Nếu Microsoft Defender SmartScreen hiện *Windows đã bảo vệ PC của bạn*, nhấn **Thông tin thêm › Vẫn chạy** (trình cài đặt chưa được ký số).
 3. Chọn thư mục cài đặt (để mặc định là được) và hoàn tất. Rosavin tạo lối tắt ở menu Start và màn hình nền.
-4. Rosavin xuất hiện ở **khay hệ thống**, cạnh đồng hồ. Nếu không thấy, nhấn mũi tên **^** để hiện các biểu tượng ẩn, rồi kéo biểu tượng con mắt ra thanh tác vụ để luôn nhìn thấy.
+4. Rosavin xuất hiện ở **khay hệ thống**, cạnh đồng hồ. Nếu không thấy, nhấn mũi tên **^** để hiện các biểu tượng ẩn, rồi kéo biểu tượng hoa hướng dương ra thanh tác vụ để luôn nhìn thấy.
 
 ## Phút đầu tiên
 
-Khi Rosavin khởi động lần đầu, cửa sổ ứng dụng sẽ mở ra và một **biểu tượng con mắt** xuất hiện trên thanh menu (góc trên bên phải màn hình Mac) hoặc ở khay hệ thống (góc dưới bên phải trên Windows).
+Khi Rosavin khởi động lần đầu, cửa sổ ứng dụng sẽ mở ra và một **biểu tượng hoa hướng dương** xuất hiện trên thanh menu (góc trên bên phải màn hình Mac) hoặc ở khay hệ thống (góc dưới bên phải trên Windows).
 
 ![Cửa sổ Rosavin khi đang tắt](images/screenshots/vi/01-main-off.jpg)
 
-1. Nhấn vào **con mắt đang nhắm** thật lớn trong cửa sổ. Con mắt mở ra, sáng ánh vàng và Rosavin báo **Đang giữ máy thức**. Từ giờ máy tính sẽ luôn thức.
-2. Nhấn lần nữa để tắt Rosavin. Con mắt nhắm lại và máy tính ngủ bình thường trở lại.
+1. Nhấn vào **bông hoa hướng dương màu xám** thật lớn trong cửa sổ. Bông hoa nở bừng sắc vàng và Rosavin báo **Đang giữ máy thức**. Từ giờ máy tính sẽ luôn thức.
+2. Nhấn lần nữa để tắt Rosavin. Bông hoa khép cánh lại và máy tính ngủ bình thường trở lại.
 3. Bạn có thể đóng cửa sổ bất cứ lúc nào. **Rosavin vẫn chạy trên thanh menu**, bạn điều khiển nó từ đó.
 
 > Mẹo: nếu không muốn cửa sổ này hiện mỗi khi Rosavin khởi động, hãy bỏ chọn **Hiện cửa sổ khi khởi động** ở cuối cửa sổ.
 
 ## Biểu tượng trên thanh menu
 
-Chỉ cần nhìn biểu tượng con mắt là biết trạng thái của Rosavin:
+Chỉ cần nhìn biểu tượng hoa hướng dương là biết trạng thái của Rosavin:
 
-![Biểu tượng khi Rosavin tắt (mắt nhắm) và bật (mắt mở kèm thời gian còn lại), trên thanh menu sáng và tối](images/screenshots/vi/04-menubar-icons.jpg)
+![Biểu tượng khi Rosavin tắt (hoa viền rỗng) và bật (hoa tô đầy kèm thời gian còn lại), trên thanh menu sáng và tối](images/screenshots/vi/04-menubar-icons.jpg)
 
 | Biểu tượng | Trạng thái |
 | --- | --- |
-| **Mắt nhắm** có hàng mi | Tắt: máy tính ngủ bình thường |
-| **Mắt mở** có ba tia sáng | Bật: máy tính luôn thức |
-| **Mắt mở + `38p`** | Bật có hẹn giờ, còn 38 phút (macOS) |
+| **Hoa hướng dương viền rỗng** | Tắt: máy tính ngủ bình thường |
+| **Hoa hướng dương tô đầy** (nhụy có hạt) | Bật: máy tính luôn thức |
+| **Hoa tô đầy + `38p`** | Bật có hẹn giờ, còn 38 phút (macOS) |
 
 **Thao tác nhấn chuột:**
 
@@ -118,7 +118,7 @@ Mở cửa sổ từ menu (**Mở Rosavin…**) hoặc mở lại ứng dụng t
 
 ![Cửa sổ Rosavin khi đang chạy một phiên 1 giờ](images/screenshots/vi/02-main-on.jpg)
 
-1. **Nút con mắt.** Nhấn để bật hoặc tắt Rosavin. Khi có hẹn giờ, **vòng tròn vàng** quanh con mắt sẽ ngắn dần theo thời gian.
+1. **Nút hoa hướng dương.** Nhấn để bật hoặc tắt Rosavin. Khi có hẹn giờ, **vòng tròn vàng** quanh bông hoa sẽ ngắn dần theo thời gian.
 2. **Trạng thái.** *Đang giữ máy thức* kèm giờ kết thúc và thời gian còn lại, ví dụ *Đến 14:53 · còn 38 phút*; hoặc *Ngủ như bình thường* khi Rosavin tắt.
 3. **Giữ máy thức trong.** Các thời lượng nhanh: **∞** (cho đến khi bạn tắt), **15p**, **30p**, **1h**, **2h**, **5h**. Nhấn một nút để bắt đầu ngay; nhấn lại nút đang sáng để dừng. Khi Rosavin tắt, thời lượng mặc định có viền mảnh.
 4. **Giữ màn hình sáng.** Chọn giữ cả màn hình sáng, hay chỉ giữ hệ thống thức.
@@ -235,7 +235,7 @@ Nhấn **(i)** trong cửa sổ hoặc chọn **Giới thiệu Rosavin** trong m
 
 ## Khắc phục sự cố & câu hỏi thường gặp
 
-**Tôi không thấy biểu tượng con mắt trên thanh menu.**
+**Tôi không thấy biểu tượng hoa hướng dương trên thanh menu.**
 Trên MacBook có "tai thỏ", các biểu tượng có thể bị che khi thanh menu quá đông. Hãy thoát bớt vài ứng dụng trên thanh menu. Nếu bạn dùng ứng dụng sắp xếp thanh menu (như Bartender hay Ice), hãy kiểm tra phần biểu tượng bị ẩn. Bạn luôn có thể mở cửa sổ Rosavin từ thư mục Ứng dụng.
 
 **MacBook vẫn ngủ khi tôi gập nắp.**

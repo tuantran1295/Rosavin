@@ -1,13 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <!-- Windows tray icon (inactive): soft closed eye on a slate badge -->
-  <defs>
-    <linearGradient id="b" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5E6B66"/><stop offset="1" stop-color="#2E3633"/></linearGradient>
-  </defs>
+  <!-- Windows tray icon (off: outline sunflower on a slate badge) -->
+  <defs><linearGradient id="b" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5E6B66"/><stop offset="1" stop-color="#2E3633"/></linearGradient></defs>
   <rect x="1" y="1" width="30" height="30" rx="7.5" fill="url(#b)"/>
-  <g transform="translate(16 11.4)" fill="#E9EFEC">
-    <path d="M-12 0 C-7.8 8.2 7.8 8.2 12 0 C 7.2 4.7 -7.2 4.7 -12 0 Z"/>
-    <path id="l" d="M0 7.3 C 1.5 8.8 1.5 11.1 0 13 C -1.5 11.1 -1.5 8.8 0 7.3 Z"/>
-    <use href="#l" transform="rotate(38)"/>
-    <use href="#l" transform="rotate(-38)"/>
-  </g>
+  <defs><path id="p" d="M0 -6.2 C2 -7.28 2.1 -9.92 0 -12.2 C-2.1 -9.92 -1.99 -7.28 0 -6.2Z"/></defs>
+  <g transform="translate(16 16)" fill="none" stroke="#E9EFEC" stroke-width="1.35" stroke-linejoin="round"><use href="#p" transform="rotate(0)"/><use href="#p" transform="rotate(36)"/><use href="#p" transform="rotate(72)"/><use href="#p" transform="rotate(108)"/><use href="#p" transform="rotate(144)"/><use href="#p" transform="rotate(180)"/><use href="#p" transform="rotate(216)"/><use href="#p" transform="rotate(252)"/><use href="#p" transform="rotate(288)"/><use href="#p" transform="rotate(324)"/><circle r="3.9"/></g>
 </svg>

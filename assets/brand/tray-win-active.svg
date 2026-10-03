@@ -1,18 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <!-- Windows tray icon (active): gold open eye on an emerald badge -->
-  <defs>
-    <linearGradient id="b" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#23805F"/><stop offset="1" stop-color="#0B3125"/></linearGradient>
-    <linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFE59A"/><stop offset="1" stop-color="#F09A41"/></linearGradient>
-    <clipPath id="o"><path d="M-11 0.4 C-7.2 -4.4 7.2 -4.4 11 0.4 C 7 4.8 -7 4.8 -11 0.4 Z"/></clipPath>
-  </defs>
+  <!-- Windows tray icon (on: golden sunflower on an emerald badge) -->
+  <defs><linearGradient id="b" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#23805F"/><stop offset="1" stop-color="#0B3125"/></linearGradient></defs>
   <rect x="1" y="1" width="30" height="30" rx="7.5" fill="url(#b)"/>
-  <g transform="translate(16 18.3)" fill="url(#g)">
-    <path id="r" d="M0 -8.4 C 1.5 -9.9 1.5 -12.2 0 -14.1 C -1.5 -12.2 -1.5 -9.9 0 -8.4 Z"/>
-    <use href="#r" transform="rotate(-40)"/>
-    <use href="#r" transform="rotate(40)"/>
-    <path d="M-12 0.4 C-8 -7.6 8 -7.6 12 0.4 C 7.2 -4.4 -7.2 -4.4 -12 0.4 Z"/>
-    <path d="M-12 0.4 C-7.8 7.2 7.8 7.2 12 0.4 C 7 4.8 -7 4.8 -12 0.4 Z"/>
-    <g clip-path="url(#o)"><circle r="3.5"/></g>
-    <circle cx="0" cy="0.2" r="1.2" fill="#0A2A20"/>
-  </g>
+  <defs><path id="p" d="M0 -5.6 C2.04 -6.86 2.15 -9.94 0 -12.6 C-2.15 -9.94 -2.04 -6.86 0 -5.6Z"/><linearGradient id="g" x1="0" y1="-5" x2="0" y2="-13" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#F3A63F"/><stop offset="1" stop-color="#FFE59A"/></linearGradient></defs>
+  <g transform="translate(16 16)"><g fill="url(#g)"><use href="#p" transform="rotate(0)"/><use href="#p" transform="rotate(30)"/><use href="#p" transform="rotate(60)"/><use href="#p" transform="rotate(90)"/><use href="#p" transform="rotate(120)"/><use href="#p" transform="rotate(150)"/><use href="#p" transform="rotate(180)"/><use href="#p" transform="rotate(210)"/><use href="#p" transform="rotate(240)"/><use href="#p" transform="rotate(270)"/><use href="#p" transform="rotate(300)"/><use href="#p" transform="rotate(330)"/></g><circle r="4.6" fill="#4C2B12" stroke="#FAC75B" stroke-width="1"/></g>
 </svg>

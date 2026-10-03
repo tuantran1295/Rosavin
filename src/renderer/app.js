@@ -311,7 +311,7 @@
   const TABS = [
     ['overview', 'sprout'],
     ['benefits', 'leaf'],
-    ['awake', 'eye'],
+    ['awake', 'sunflower'],
     ['safety', 'shield'],
     ['gallery', 'image'],
     ['sources', 'book'],
@@ -434,7 +434,7 @@
           h('p', { class: 'note', text: a.standardized }),
         ),
       ),
-      h('div', { class: 'callout reminder', icon: 'eye' }, h('p', { text: a.reminder })),
+      h('div', { class: 'callout reminder', icon: 'moon' }, h('p', { text: a.reminder })),
     );
   }
 
