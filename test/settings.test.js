@@ -39,3 +39,15 @@ test('recovers from a corrupted file', () => {
   const settings = new Settings(file);
   assert.deepEqual(settings.getAll(), { ...DEFAULTS });
 });
+
+test('starts at login by default and knows when it is the first launch', () => {
+  const file = tempFile();
+  const settings = new Settings(file);
+  assert.equal(settings.get('launchAtLogin'), true);
+  assert.equal(settings.get('showWindowOnLaunch'), true);
+  assert.equal(settings.get('defaultDuration'), 0);
+  assert.equal(settings.isFirstRun, true);
+  settings.persist();
+  assert.equal(settings.isFirstRun, false);
+  assert.equal(new Settings(file).isFirstRun, false);
+});

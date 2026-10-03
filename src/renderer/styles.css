@@ -119,7 +119,6 @@ a { color: var(--brand); }
 .platform-darwin .brand { padding-left: 92px; }
 .brand-mark { width: 38px; height: 28px; overflow: visible; }
 .brand-name { font-family: var(--font-serif); font-size: 23px; letter-spacing: 0.2px; color: var(--text); }
-.brand-tagline { margin-left: auto; font-size: 11px; font-weight: 500; letter-spacing: 0.4px; color: var(--text-3); }
 
 /* ----------------------------------------------------------- awake orb */
 .awake { display: flex; flex-direction: column; align-items: center; text-align: center; padding-top: 8px; }
@@ -257,7 +256,7 @@ a { color: var(--brand); }
 .footer-row { display: flex; align-items: center; justify-content: space-between; margin-top: 10px; gap: 8px; }
 .check { display: flex; align-items: center; gap: 7px; font-size: 11.5px; color: var(--text-2); cursor: pointer; min-width: 0; }
 .check input { accent-color: var(--brand); width: 14px; height: 14px; margin: 0; flex: none; }
-.footer-actions { display: flex; align-items: center; gap: 4px; flex: none; }
+.footer-actions { display: flex; align-items: center; gap: 6px; flex: none; }
 .icon-button {
   display: grid;
   place-items: center;
@@ -271,7 +270,28 @@ a { color: var(--brand); }
   cursor: pointer;
 }
 .icon-button:hover { background: var(--surface); color: var(--text); }
-.lang-switch { display: flex; padding: 2px; border-radius: 9px; background: var(--surface); margin-right: 4px; }
+.lang-switch { display: flex; padding: 2px; border-radius: 9px; background: var(--surface); margin-left: auto; }
+.prefs-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  height: 34px;
+  padding: 0 14px 0 11px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--brand);
+  color: #FFFFFF;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(15, 74, 55, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.18);
+  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+}
+.prefs-button .icon { width: 18px; height: 18px; transition: transform 0.5s var(--ease); }
+.prefs-button:hover { background: var(--brand-strong); box-shadow: 0 6px 18px rgba(15, 74, 55, 0.36), inset 0 1px 0 rgba(255, 255, 255, 0.18); }
+.prefs-button:hover .icon { transform: rotate(60deg); }
+.prefs-button:active { transform: scale(0.97); }
+@media (prefers-color-scheme: dark) { .prefs-button { color: #08231A; } .prefs-button:hover { background: #5FC09A; } }
 .lang-switch button { border: 0; background: transparent; padding: 4px 8px; border-radius: 7px; font-size: 11px; font-weight: 700; letter-spacing: 0.5px; color: var(--text-3); cursor: pointer; }
 .lang-switch button[aria-pressed='true'] { background: var(--panel); color: var(--text); box-shadow: var(--shadow-sm); }
 

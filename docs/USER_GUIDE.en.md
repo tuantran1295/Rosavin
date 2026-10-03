@@ -122,7 +122,7 @@ Open the window from the menu (**Open Rosavin…**) or by opening the app again 
 2. **Status.** *Staying awake* with the end time and the time left, for example *Until 2:50 PM · 38 min left*, or *Sleeping as usual* when Rosavin is off.
 3. **Keep awake for.** Quick durations: **∞** (until you turn it off), **15m**, **30m**, **1h**, **2h**, **5h**. Click one to start a session right away; click the highlighted one again to stop. When Rosavin is off, your default duration has a thin outline.
 4. **Keep screen on.** Choose whether the display stays on, or only the system.
-5. **Bottom bar.** A reminder of where the icon lives, the **Show this window at startup** option, the **EN / VI** language switch, **Preferences** (sliders) and **About** (i).
+5. **Bottom bar.** A reminder of where the icon lives, the **Show this window at startup** option, the green **⚙ Preferences** button and **About** (i). The **EN / VI** language switch sits at the top right.
 6. **The golden root panel.** A photo of *Rhodiola rosea* and the **Discover the benefits** button.
 
 Rosavin follows your system's light or dark appearance (you can also force one in Preferences):
@@ -182,20 +182,20 @@ Rosavin is named after **rosavin**, the signature compound of *Rhodiola rosea*, 
 
 ## Preferences
 
-Open Preferences with the sliders button in the window, **Preferences…** in the menu, or **⌘,** (Ctrl+, on Windows). Changes apply immediately.
+Open Preferences with the green **⚙ Preferences** button at the bottom of the window, **Preferences…** in the menu, or **⌘,** (Ctrl+, on Windows). Changes apply immediately.
 
 ![Preferences](images/screenshots/en/12-preferences.jpg)
 
 | Setting | What it does |
 | --- | --- |
-| **Start Rosavin at login** | Rosavin starts automatically (quietly, in the menu bar) when you log in. On macOS you may need to allow it in *System Settings › General › Login Items* |
-| **Turn on when Rosavin starts** | Rosavin switches itself on every time it starts, using the default duration |
-| **Show the Rosavin window at startup** | Open the window when Rosavin starts (same as the checkbox at the bottom of the window) |
-| **Default duration** | What clicking the icon (or *Turn On*) does: *Indefinitely* or a time from 5 minutes to 8 hours |
+| **Start Rosavin at login** | On by default. Rosavin starts automatically (quietly, in the menu bar) when you log in. On macOS you may need to allow it in *System Settings › General › Login Items* |
+| **Turn on when Rosavin starts** | Off by default. When on, Rosavin keeps your computer awake as soon as it opens, using the default duration. Combine it with *Start Rosavin at login* to stay awake from the moment you sign in |
+| **Show the Rosavin window at startup** | On by default. Open the window when you start Rosavin (same as the checkbox at the bottom of the window) |
+| **Default duration** | What clicking the icon (or *Turn On*) does: *Indefinitely* (default) or a time from 5 minutes to 8 hours |
 | **Notify me when a timer ends** | Show a notification when a timed session finishes |
 | **Show time remaining next to the icon** | macOS only: show `38m`-style countdowns in the menu bar |
 | **Clicking the icon** | *Turns Rosavin on/off* (default) or *Opens the menu*. Right-click always opens the menu |
-| **Language** | *System default*, *English* or *Tiếng Việt*. You can also use the **EN / VI** switch in the window |
+| **Language** | *System default*, *English* or *Tiếng Việt*. You can also use the **EN / VI** switch at the top right of the window |
 | **Theme** | *System*, *Light* or *Dark* |
 
 ## Automation: links and command line

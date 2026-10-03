@@ -122,7 +122,7 @@ Mở cửa sổ từ menu (**Mở Rosavin…**) hoặc mở lại ứng dụng t
 2. **Trạng thái.** *Đang giữ máy thức* kèm giờ kết thúc và thời gian còn lại, ví dụ *Đến 14:53 · còn 38 phút*; hoặc *Ngủ như bình thường* khi Rosavin tắt.
 3. **Giữ máy thức trong.** Các thời lượng nhanh: **∞** (cho đến khi bạn tắt), **15p**, **30p**, **1h**, **2h**, **5h**. Nhấn một nút để bắt đầu ngay; nhấn lại nút đang sáng để dừng. Khi Rosavin tắt, thời lượng mặc định có viền mảnh.
 4. **Giữ màn hình sáng.** Chọn giữ cả màn hình sáng, hay chỉ giữ hệ thống thức.
-5. **Thanh dưới cùng.** Lời nhắc vị trí biểu tượng, tùy chọn **Hiện cửa sổ khi khởi động**, nút chuyển ngôn ngữ **EN / VI**, nút **Tùy chọn** (biểu tượng thanh trượt) và **Giới thiệu** (i).
+5. **Thanh dưới cùng.** Lời nhắc vị trí biểu tượng, tùy chọn **Hiện cửa sổ khi khởi động**, nút xanh **⚙ Tùy chọn** và **Giới thiệu** (i). Nút chuyển ngôn ngữ **EN / VI** nằm ở góc trên bên phải.
 6. **Khung "rễ vàng".** Ảnh cây *Rhodiola rosea* và nút **Khám phá lợi ích**.
 
 Rosavin tự đổi theo giao diện sáng/tối của hệ thống (bạn cũng có thể chọn cố định trong Tùy chọn):
@@ -182,20 +182,20 @@ Rosavin được đặt theo tên **rosavin**, hoạt chất đặc trưng của
 
 ## Tùy chọn
 
-Mở Tùy chọn bằng nút thanh trượt trong cửa sổ, mục **Tùy chọn…** trong menu, hoặc phím **⌘,** (Ctrl+, trên Windows). Thay đổi có hiệu lực ngay.
+Mở Tùy chọn bằng nút xanh **⚙ Tùy chọn** ở cuối cửa sổ, mục **Tùy chọn…** trong menu, hoặc phím **⌘,** (Ctrl+, trên Windows). Thay đổi có hiệu lực ngay.
 
 ![Tùy chọn](images/screenshots/vi/12-preferences.jpg)
 
 | Cài đặt | Chức năng |
 | --- | --- |
-| **Khởi động Rosavin khi đăng nhập** | Rosavin tự khởi động (lặng lẽ trên thanh menu) khi bạn đăng nhập. Trên macOS có thể cần cho phép trong *Cài đặt hệ thống › Cài đặt chung › Mục đăng nhập* |
-| **Tự bật khi Rosavin khởi động** | Rosavin tự bật mỗi khi khởi động, với thời lượng mặc định |
-| **Hiện cửa sổ Rosavin khi khởi động** | Mở cửa sổ khi Rosavin khởi động (giống ô chọn ở cuối cửa sổ) |
-| **Thời lượng mặc định** | Điều xảy ra khi nhấn vào biểu tượng (hoặc *Bật*): *Không giới hạn* hoặc từ 5 phút đến 8 giờ |
+| **Khởi động Rosavin khi đăng nhập** | Bật sẵn theo mặc định. Rosavin tự khởi động (lặng lẽ trên thanh menu) khi bạn đăng nhập. Trên macOS có thể cần cho phép trong *Cài đặt hệ thống › Cài đặt chung › Mục đăng nhập* |
+| **Tự bật khi Rosavin khởi động** | Tắt theo mặc định. Khi bật, Rosavin giữ máy thức ngay khi mở, theo thời lượng mặc định. Kết hợp với *Khởi động Rosavin khi đăng nhập* để máy thức ngay từ lúc bạn đăng nhập |
+| **Hiện cửa sổ Rosavin khi khởi động** | Bật sẵn theo mặc định. Mở cửa sổ khi bạn khởi động Rosavin (giống ô chọn ở cuối cửa sổ) |
+| **Thời lượng mặc định** | Điều xảy ra khi nhấn vào biểu tượng (hoặc *Bật*): *Không giới hạn* (mặc định) hoặc từ 5 phút đến 8 giờ |
 | **Thông báo khi hết giờ hẹn** | Hiện thông báo khi một phiên hẹn giờ kết thúc |
 | **Hiện thời gian còn lại cạnh biểu tượng** | Chỉ trên macOS: hiện đồng hồ đếm ngược kiểu `38p` trên thanh menu |
 | **Khi nhấn vào biểu tượng** | *Bật/tắt Rosavin* (mặc định) hoặc *Mở menu*. Nhấn chuột phải luôn mở menu |
-| **Ngôn ngữ** | *Theo hệ thống*, *English* hoặc *Tiếng Việt*. Bạn cũng có thể dùng nút **EN / VI** trong cửa sổ |
+| **Ngôn ngữ** | *Theo hệ thống*, *English* hoặc *Tiếng Việt*. Bạn cũng có thể dùng nút **EN / VI** ở góc trên bên phải cửa sổ |
 | **Chủ đề** | *Hệ thống*, *Sáng* hoặc *Tối* |
 
 ## Tự động hóa: liên kết và dòng lệnh

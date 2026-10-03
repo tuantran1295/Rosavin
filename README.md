@@ -47,7 +47,7 @@ The app is named after **rosavin**, the signature compound of *Rhodiola rosea*, 
 - **Keep screen on** (no dimming, no screen saver) **or system only** (the display may sleep, the computer keeps running for downloads and renders).
 - **Beautiful main window** with quick-duration chips, a progress ring and a Rhodiola rosea panel.
 - **Rhodiola rosea guide:** benefits with evidence levels, how it keeps you awake, safe use, a photo gallery and 19 scientific sources.
-- **Preferences:** start at login, turn on at launch, default duration, click behaviour, notifications, theme (system / light / dark).
+- **Preferences:** start at login (on by default), turn on at launch, default duration, click behaviour, notifications, theme (system / light / dark).
 - **English and Vietnamese** user interface (follows your system language, or choose one).
 - **Automation:** `rosavin://` links and command-line flags for Shortcuts, scripts and launchers.
 - **Private by design:** no network access, no analytics, no accounts.
@@ -101,7 +101,7 @@ Build the installer with `npm run dist:win` (see [Build installers](#build-insta
 | Let the display sleep but keep the computer running | Untick **Keep Screen On** (menu) or switch it off in the window |
 | Open the window | Right-click the icon › **Open Rosavin…** |
 | Read about Rhodiola rosea | Click **Discover the benefits** in the window, or menu › **Rhodiola Rosea Benefits…** |
-| Change settings | Window › sliders button, menu › **Preferences…**, or **⌘,** |
+| Change settings | Window › **⚙ Preferences** button, menu › **Preferences…**, or **⌘,** |
 | Quit | Menu › **Quit Rosavin** (or **⌘Q** while the window is focused) |
 
 Closing the window does not quit Rosavin: it keeps running in the menu bar / tray.

@@ -108,6 +108,7 @@ module.exports = {
     launchAtLogin: 'Start Rosavin at login',
     launchAtLoginNoteMac: 'macOS may ask you to allow Rosavin in System Settings › General › Login Items.',
     activateOnLaunch: 'Turn on when Rosavin starts',
+    activateOnLaunchHint: 'Keeps your computer awake as soon as Rosavin opens, using the default duration.',
     showWindowOnLaunch: 'Show the Rosavin window at startup',
     defaultDuration: 'Default duration',
     defaultDurationHint: 'Used when you click the icon or turn Rosavin on without choosing a time.',

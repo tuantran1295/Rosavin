@@ -279,7 +279,7 @@
       h('section', { class: 'prefs-section' },
         h('h3', { text: t('prefs.general') }),
         switchRow('launchAtLogin', t('prefs.launchAtLogin'), isMac() ? t('prefs.launchAtLoginNoteMac') : null),
-        switchRow('activateOnLaunch', t('prefs.activateOnLaunch')),
+        switchRow('activateOnLaunch', t('prefs.activateOnLaunch'), t('prefs.activateOnLaunchHint')),
         switchRow('showWindowOnLaunch', t('prefs.showWindowOnLaunch')),
         selectRow('defaultDuration', t('prefs.defaultDuration'), t('prefs.defaultDurationHint'), durationOptions, Number),
         switchRow('notifyWhenFinished', t('prefs.notifyWhenFinished')),

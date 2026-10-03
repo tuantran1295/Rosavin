@@ -184,7 +184,7 @@ function dmgWindowSvg() {
 // -------------------------------------------------------------------- main
 async function launch({ lang, dark }) {
   const userData = fs.mkdtempSync(path.join(tmp, `profile-${lang}-`));
-  fs.writeFileSync(path.join(userData, 'settings.json'), JSON.stringify({ language: lang, theme: dark ? 'dark' : 'light', trayHintShown: true, notifyWhenFinished: false }));
+  fs.writeFileSync(path.join(userData, 'settings.json'), JSON.stringify({ language: lang, theme: dark ? 'dark' : 'light', trayHintShown: true }));
   const app = await electron.launch({
     args: [root],
     env: { ...process.env, ROSAVIN_E2E: '1', ROSAVIN_USER_DATA: userData },

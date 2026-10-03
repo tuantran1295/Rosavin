@@ -8,7 +8,7 @@ const { DURATION_PRESETS } = require('../shared/time');
 const DEFAULTS = Object.freeze({
   language: 'auto', // 'auto' | 'en' | 'vi'
   theme: 'system', // 'system' | 'light' | 'dark'
-  launchAtLogin: false,
+  launchAtLogin: true,
   activateOnLaunch: false,
   showWindowOnLaunch: true,
   defaultDuration: 0, // minutes, 0 = indefinitely
@@ -41,6 +41,8 @@ class Settings extends EventEmitter {
   constructor(file) {
     super();
     this.file = file;
+    /** True until the settings file has been written once (first launch). */
+    this.isFirstRun = !fs.existsSync(file);
     this.values = { ...DEFAULTS, ...this.#load() };
   }
 
@@ -81,12 +83,18 @@ class Settings extends EventEmitter {
     return changed;
   }
 
+  /** Writes the current values to disk (also used to record the first launch). */
+  persist() {
+    this.#save();
+  }
+
   #save() {
     try {
       fs.mkdirSync(path.dirname(this.file), { recursive: true });
       const tmp = `${this.file}.tmp`;
       fs.writeFileSync(tmp, JSON.stringify(this.values, null, 2));
       fs.renameSync(tmp, this.file);
+      this.isFirstRun = false;
     } catch (err) {
       console.error('[settings] could not save', err);
     }

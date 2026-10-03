@@ -66,7 +66,7 @@
           <use href="#mark-open"/>
         </svg>
         <span class="brand-name">Rosavin</span>
-        <span class="brand-tagline" data-i18n="app.tagline">Stay awake, naturally.</span>
+        <div class="lang-switch" id="lang-switch" role="group" data-i18n-aria="ui.language"></div>
       </header>
 
       <section class="awake" aria-live="polite">
@@ -122,8 +122,7 @@
             <span data-i18n="ui.showAtStartup">Show this window at startup</span>
           </label>
           <div class="footer-actions">
-            <div class="lang-switch" id="lang-switch" role="group" data-i18n-aria="ui.language"></div>
-            <button class="icon-button" id="open-prefs" type="button" data-icon="sliders" data-i18n-title="ui.preferences" data-i18n-aria="ui.preferences"></button>
+            <button class="prefs-button" id="open-prefs" type="button" data-icon="gear" data-i18n-title="ui.preferences"><span data-i18n="ui.preferences">Preferences</span></button>
             <button class="icon-button" id="open-about" type="button" data-icon="info" data-i18n-title="ui.about" data-i18n-aria="ui.about"></button>
           </div>
         </div>

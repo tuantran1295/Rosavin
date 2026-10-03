@@ -107,6 +107,7 @@ module.exports = {
     launchAtLogin: 'Khởi động Rosavin khi đăng nhập',
     launchAtLoginNoteMac: 'macOS có thể yêu cầu bạn cho phép Rosavin trong Cài đặt hệ thống › Cài đặt chung › Mục đăng nhập.',
     activateOnLaunch: 'Tự bật khi Rosavin khởi động',
+    activateOnLaunchHint: 'Giữ máy thức ngay khi Rosavin mở, theo thời lượng mặc định.',
     showWindowOnLaunch: 'Hiện cửa sổ Rosavin khi khởi động',
     defaultDuration: 'Thời lượng mặc định',
     defaultDurationHint: 'Áp dụng khi bạn nhấn vào biểu tượng hoặc bật Rosavin mà không chọn thời gian.',

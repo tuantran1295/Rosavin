@@ -96,7 +96,13 @@ function onReady() {
   trayController.create();
 
   registerIpc();
-  syncLoginItem();
+  if (settings.isFirstRun) {
+    // First launch: apply the defaults (start at login is on) and remember them.
+    applyLoginItem(settings.get('launchAtLogin'));
+    settings.persist();
+  } else {
+    syncLoginItem();
+  }
 
   powerMonitor.on('resume', () => keepAwake.check());
   nativeTheme.on('updated', () => {
