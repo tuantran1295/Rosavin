@@ -339,6 +339,8 @@ a { color: var(--brand); }
   user-select: text;
 }
 .dialog-xl { width: min(920px, calc(100vw - 48px)); height: calc(100vh - 36px); }
+/* macOS draws the window buttons over the content: keep the big dialog below them. */
+.platform-darwin .dialog-xl { height: calc(100vh - 68px); margin-top: 32px; }
 .dialog-md { width: min(560px, calc(100vw - 48px)); }
 .dialog-sm { width: min(440px, calc(100vw - 48px)); }
 @keyframes fade { from { opacity: 0; } }

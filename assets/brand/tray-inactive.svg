@@ -1,9 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36">
   <!-- Menu bar template icon (inactive): closed, sleeping eye with lashes. Black + alpha only. -->
-  <g transform="translate(18 13.2)" fill="#000">
-    <path d="M-17.2 0 C-11.2 11 11.2 11 17.2 0 C 10.4 7.2 -10.4 7.2 -17.2 0 Z"/>
+  <g transform="translate(18 10.6)" fill="#000">
+    <path d="M-17.4 0 C-11.3 11.4 11.3 11.4 17.4 0 C 10.6 6.6 -10.6 6.6 -17.4 0 Z"/>
     <g>
-      <path id="l" d="M0 9.9 C 1.75 11.7 1.75 14.6 0 16.9 C -1.75 14.6 -1.75 11.7 0 9.9 Z"/>
+      <path id="l" d="M0 10.2 C 2.1 12.2 2.1 15.4 0 18.1 C -2.1 15.4 -2.1 12.2 0 10.2 Z"/>
       <use href="#l" transform="rotate(38)"/>
       <use href="#l" transform="rotate(-38)"/>
     </g>

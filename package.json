@@ -22,7 +22,7 @@
     "test:e2e": "node scripts/e2e.mjs",
     "screenshots": "node scripts/screenshots.mjs",
     "docs:docx": "node scripts/docs-to-docx.mjs",
-    "dist:mac": "electron-builder --mac --universal",
+    "dist:mac": "electron-builder --mac",
     "dist:win": "electron-builder --win --x64 --arm64",
     "dist": "electron-builder"
   },
