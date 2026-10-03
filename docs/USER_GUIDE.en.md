@@ -154,7 +154,7 @@ Switch modes from the menu (**Keep Screen On**) or with the switch in the window
 
 Rosavin is named after **rosavin**, the signature compound of *Rhodiola rosea*, the "golden root" from the Arctic. Click **Discover the benefits** in the window (or choose **Rhodiola Rosea Benefits…** in the menu) to open an illustrated guide with six tabs. Close it with the **×** button or the **Esc** key.
 
-**Overview.** What the plant is, where it grows, its traditional use and key facts, plus an honest note on how strong the science is.
+**Overview.** What the plant is, where it grows, its traditional use and key facts.
 
 ![Overview tab](images/screenshots/en/05-benefits-overview.jpg)
 

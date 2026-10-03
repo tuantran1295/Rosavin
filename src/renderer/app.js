@@ -366,7 +366,6 @@
       h('div', { class: 'overview' },
         h('div', { class: 'overview-text' },
           ...o.paragraphs.map((p) => h('p', { text: p })),
-          h('div', { class: 'callout', icon: 'flask' }, h('div', {}, h('strong', { text: o.evidenceTitle }), h('p', { text: o.evidenceNote }))),
         ),
         h('dl', { class: 'facts' }, ...o.facts.map((f) => h('div', { class: 'fact' }, h('dt', { text: f.label }), h('dd', { text: f.value })))),
       ),

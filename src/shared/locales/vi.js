@@ -165,8 +165,6 @@ module.exports = {
         { label: 'Vì sao gọi là “rễ hoa hồng”?', value: 'Rễ tươi khi cắt ra có mùi thơm như hoa hồng' },
         { label: 'Vì sao tên là “Rosavin”?', value: 'Rosavin là hoạt chất gần như chỉ có ở R. rosea, nên được dùng để nhận biết chiết xuất thật.' },
       ],
-      evidenceTitle: 'Khoa học nói gì',
-      evidenceNote: 'Kết quả rất đáng khích lệ, nhưng phần lớn nghiên cứu còn nhỏ và chất lượng ở mức thấp đến trung bình; các bài tổng quan đều kêu gọi thêm thử nghiệm lớn và chặt chẽ hơn. Hãy xem rhodiola như một trợ thủ tiềm năng, không phải phương pháp điều trị đã được chứng minh.',
     },
 
     benefitsSection: {

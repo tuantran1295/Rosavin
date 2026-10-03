@@ -154,7 +154,7 @@ Chọn thời lượng mới khi Rosavin đang bật sẽ bắt đầu lại h�
 
 Rosavin được đặt theo tên **rosavin**, hoạt chất đặc trưng của *Rhodiola rosea* (hồng cảnh thiên), loài "rễ vàng" của vùng Bắc Cực. Nhấn **Khám phá lợi ích** trong cửa sổ (hoặc chọn **Lợi ích của Rhodiola rosea…** trong menu) để mở phần giới thiệu có minh họa, gồm sáu thẻ. Đóng lại bằng nút **×** hoặc phím **Esc**.
 
-**Tổng quan.** Loài cây này là gì, mọc ở đâu, được dùng theo truyền thống ra sao, các thông tin chính và một ghi chú trung thực về mức độ bằng chứng khoa học.
+**Tổng quan.** Loài cây này là gì, mọc ở đâu, được dùng theo truyền thống ra sao và các thông tin chính.
 
 ![Thẻ Tổng quan](images/screenshots/vi/05-benefits-overview.jpg)
 

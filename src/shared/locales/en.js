@@ -166,8 +166,6 @@ module.exports = {
         { label: 'Why "rose root"?', value: 'The freshly cut root smells like roses' },
         { label: 'Why "Rosavin"?', value: 'Rosavin is the compound found almost only in R. rosea, so it is used to identify genuine extracts.' },
       ],
-      evidenceTitle: 'What the science says',
-      evidenceNote: 'The results are encouraging, but most studies are small and of low-to-moderate quality, and reviews call for larger, better trials. Think of rhodiola as a possible helper, not a proven treatment.',
     },
 
     benefitsSection: {
