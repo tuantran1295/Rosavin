@@ -1,0 +1,79 @@
+# electron-builder configuration — https://www.electron.build
+appId: com.rosavin.app
+productName: Rosavin
+copyright: Copyright © 2026 Rosavin contributors
+artifactName: ${productName}-${version}-${arch}.${ext}
+
+directories:
+  output: release
+  buildResources: build
+
+# Only the app itself is packaged (no scripts, docs or brand sources).
+files:
+  - package.json
+  - src/**/*
+
+asar: true
+
+protocols:
+  - name: Rosavin
+    schemes:
+      - rosavin
+
+mac:
+  category: public.app-category.utilities
+  icon: build/icon.icns
+  target:
+    - target: dmg
+      arch:
+        - universal
+  # Ad-hoc signature: the app has a valid (but not Apple-notarized) signature,
+  # so it runs on Apple Silicon and Intel Macs. To sign & notarize with your own
+  # Apple Developer ID, see "Code signing" in README.md.
+  identity: "-"
+  hardenedRuntime: false
+  gatekeeperAssess: false
+  darkModeSupport: true
+  extendInfo:
+    # Menu bar app: no Dock icon until the Rosavin window is opened.
+    LSUIElement: true
+
+dmg:
+  title: Rosavin ${version}
+  icon: build/icon.icns
+  background: build/background.tiff
+  iconSize: 112
+  window:
+    width: 660
+    height: 400
+  contents:
+    - x: 180
+      y: 196
+    - x: 480
+      y: 196
+      type: link
+      path: /Applications
+
+win:
+  icon: build/icon.ico
+  target:
+    - target: nsis
+      arch:
+        - x64
+        - arm64
+
+nsis:
+  oneClick: false
+  perMachine: false
+  allowToChangeInstallationDirectory: true
+  createDesktopShortcut: true
+  createStartMenuShortcut: true
+  shortcutName: Rosavin
+  installerIcon: build/icon.ico
+  uninstallerIcon: build/icon.ico
+
+linux:
+  icon: build/icon.png
+  category: Utility
+  target:
+    - AppImage

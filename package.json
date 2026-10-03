@@ -1,0 +1,39 @@
+{
+  "name": "rosavin",
+  "productName": "Rosavin",
+  "version": "1.0.0",
+  "description": "Rosavin keeps your Mac or Windows PC awake. A tiny menu bar / system tray app with a golden-root soul.",
+  "main": "src/main/main.js",
+  "author": "Rosavin contributors",
+  "license": "MIT",
+  "private": true,
+  "keywords": [
+    "keep-awake",
+    "prevent-sleep",
+    "menu-bar",
+    "system-tray",
+    "electron",
+    "rhodiola-rosea"
+  ],
+  "scripts": {
+    "start": "electron .",
+    "assets": "node scripts/build-assets.mjs",
+    "test": "node --test \"test/*.test.js\"",
+    "test:e2e": "node scripts/e2e.mjs",
+    "screenshots": "node scripts/screenshots.mjs",
+    "docs:docx": "node scripts/docs-to-docx.mjs",
+    "dist:mac": "electron-builder --mac --universal",
+    "dist:win": "electron-builder --win --x64 --arm64",
+    "dist": "electron-builder"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "@resvg/resvg-js": "^2.6.2",
+    "electron": "^44.5.1",
+    "electron-builder": "^26.15.3",
+    "opentype.js": "^2.0.0",
+    "playwright-core": "^1.63.0"
+  }
+}

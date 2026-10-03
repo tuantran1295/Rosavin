@@ -1,0 +1,27 @@
+# Dependencies
+node_modules/
+
+# Build output
+release/
+dist/
+out/
+
+# Local agent notes (kept private, not shared)
+.agents/
+
+# Logs & caches
+*.log
+npm-debug.log*
+.npm/
+.cache/
+
+# OS / editor files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+
+# Temporary test artifacts
+test-results/
+.tmp/
