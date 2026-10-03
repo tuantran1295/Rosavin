@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-400 -360 800 590" role="img" aria-label="Rosavin">
+  <!-- Rosavin mark: a leaf-shaped open eye with petal rays and a four-petal Rhodiola flower pupil (for light backgrounds) -->
+  <defs>
+    <linearGradient id="rl-gold" x1="0" y1="-330" x2="0" y2="210" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2C8C67"/>
+      <stop offset="0.42" stop-color="#18604A"/>
+      <stop offset="1" stop-color="#0D3B2D"/>
+    </linearGradient>
+    <radialGradient id="rl-iris" cx="-30" cy="-42" r="160" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFF5CC"/>
+      <stop offset="0.42" stop-color="#FDC853"/>
+      <stop offset="0.82" stop-color="#F08C3C"/>
+      <stop offset="1" stop-color="#D65A4D"/>
+    </radialGradient>
+    <clipPath id="rl-opening"><path d="M-352 6 C-236 -138 236 -138 352 6 C 232 140 -232 140 -352 6 Z"/></clipPath>
+  </defs>
+  <path d="M-352 6 C-236 -138 236 -138 352 6 C 232 140 -232 140 -352 6 Z" fill="#0D3B2D" fill-opacity="0.08"/>
+  <g clip-path="url(#rl-opening)">
+    <circle r="110" fill="url(#rl-iris)"/>
+    <g fill="#0A2A20">
+      <path id="rl-petal" d="M0 -60 C 22 -41 22 -17 0 0 C -22 -17 -22 -41 0 -60 Z"/>
+      <use href="#rl-petal" transform="rotate(90)"/>
+      <use href="#rl-petal" transform="rotate(180)"/>
+      <use href="#rl-petal" transform="rotate(270)"/>
+      <circle r="21"/>
+    </g>
+    <circle cx="42" cy="-46" r="15" fill="#FFFFFF" opacity="0.92"/>
+  </g>
+  <g fill="url(#rl-gold)">
+    <path id="rl-ray" d="M0 -218 C 26 -248 26 -296 0 -336 C -26 -296 -26 -248 0 -218 Z"/>
+    <use href="#rl-ray" transform="rotate(-36)"/>
+    <use href="#rl-ray" transform="rotate(36)"/>
+    <path d="M-370 6 C-250 -218 250 -218 370 6 C 236 -138 -236 -138 -370 6 Z"/>
+    <path d="M-370 6 C-246 200 246 200 370 6 C 232 140 -232 140 -370 6 Z"/>
+  </g>
+</svg>
