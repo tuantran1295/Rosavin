@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-330 -330 660 660" role="img" aria-label="__APP_NAME__">
+  <!-- PLACEHOLDER MARK (for dark backgrounds). Replace with your own logo; see references/brand-assets.md. -->
+  <defs>
+    <linearGradient id="g" x1="0" y1="-300" x2="0" y2="300" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFEFB5"/><stop offset="0.5" stop-color="#FAC75B"/><stop offset="1" stop-color="#EA8A3E"/>
+    </linearGradient>
+    <path id="s" d="M0 -300 C 34 -92 92 -34 300 0 C 92 34 34 92 0 300 C -34 92 -92 34 -300 0 C -92 -34 -34 -92 0 -300 Z"/>
+  </defs>
+  <use href="#s" fill="url(#g)"/>
+  <use href="#s" transform="translate(205 -205) scale(0.2)" fill="#FFE8A3"/>
+  <use href="#s" transform="translate(-215 195) scale(0.15)" fill="#FFE8A3"/>
+</svg>

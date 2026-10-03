@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 1360" preserveAspectRatio="xMidYMid slice">
+  <!-- Starter illustration (MIT). Replace with your own art or a licensed photo. -->
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1E2A4A"/><stop offset="0.45" stop-color="#4A4E7A"/><stop offset="0.72" stop-color="#C77D8A"/><stop offset="0.9" stop-color="#F4B48A"/><stop offset="1" stop-color="#FFD9A0"/></linearGradient>
+    <radialGradient id="sun" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#FFF1C2"/><stop offset="1" stop-color="#FFB673"/></radialGradient>
+    <radialGradient id="glow" cx="700" cy="800" r="520" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#FFF1C2" stop-opacity="0.55"/><stop offset="1" stop-color="#FFF1C2" stop-opacity="0"/></radialGradient>
+    <linearGradient id="mist" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFE6D6" stop-opacity="0"/><stop offset="0.5" stop-color="#FFE6D6" stop-opacity="0.22"/><stop offset="1" stop-color="#FFE6D6" stop-opacity="0"/></linearGradient>
+  </defs>
+  <rect width="1120" height="1360" fill="url(#sky)"/>
+  <g fill="#FFFFFF"><circle cx="0" cy="516" r="1.4" opacity="0.38"/><circle cx="817" cy="298" r="1.5" opacity="0.70"/><circle cx="846" cy="304" r="2.3" opacity="0.63"/><circle cx="915" cy="136" r="1.6" opacity="0.67"/><circle cx="782" cy="30" r="2.3" opacity="0.53"/><circle cx="1033" cy="452" r="1.1" opacity="0.56"/><circle cx="1034" cy="386" r="2.2" opacity="0.60"/><circle cx="1021" cy="509" r="1.6" opacity="0.45"/><circle cx="938" cy="186" r="1.1" opacity="0.43"/><circle cx="480" cy="165" r="2.9" opacity="0.58"/><circle cx="817" cy="492" r="0.9" opacity="0.41"/><circle cx="628" cy="285" r="1.7" opacity="0.37"/><circle cx="1018" cy="31" r="1.6" opacity="0.46"/><circle cx="744" cy="518" r="1.9" opacity="0.35"/><circle cx="454" cy="159" r="1.6" opacity="0.50"/><circle cx="372" cy="298" r="2.2" opacity="0.39"/><circle cx="1015" cy="256" r="2.7" opacity="0.63"/><circle cx="710" cy="289" r="1.9" opacity="0.66"/><circle cx="1052" cy="222" r="2.4" opacity="0.40"/><circle cx="657" cy="196" r="1.5" opacity="0.48"/><circle cx="890" cy="491" r="1.0" opacity="0.74"/><circle cx="87" cy="228" r="1.1" opacity="0.30"/></g>
+  <rect width="1120" height="1360" fill="url(#glow)"/>
+  <circle cx="700" cy="800" r="150" fill="url(#sun)"/>
+  <path d="M0 870 C120 800 210 760 300 790 C400 822 470 730 590 712 C700 696 760 790 880 770 C980 752 1040 700 1120 720 V1360 H0 Z" fill="#6B5A7A"/>
+  <path d="M0 960 C140 900 240 905 340 930 C450 958 520 870 650 860 C760 852 820 935 930 915 C1020 898 1070 860 1120 870 V1360 H0 Z" fill="#4E4466"/>
+  <path d="M0 1060 C160 1010 280 1030 380 1040 C500 1052 600 980 720 985 C840 990 900 1040 1000 1030 C1060 1024 1090 1000 1120 1004 V1360 H0 Z" fill="#352F4E"/>
+  <path d="M0 1180 C200 1130 360 1150 520 1160 C700 1172 820 1110 960 1120 C1040 1126 1090 1140 1120 1146 V1360 H0 Z" fill="#221E36"/>
+  <rect y="760" width="1120" height="220" fill="url(#mist)"/>
+</svg>

@@ -1,0 +1,70 @@
+# electron-builder configuration — https://www.electron.build
+appId: __APP_ID__
+productName: __APP_NAME__
+copyright: Copyright © __YEAR__ __APP_NAME__ contributors
+artifactName: ${productName}-${version}-${arch}.${ext}
+
+directories:
+  output: release
+  buildResources: build
+
+# Package only the app (no scripts, docs or brand sources).
+files:
+  - package.json
+  - src/**/*
+
+asar: true
+
+protocols:
+  - name: __APP_NAME__
+    schemes:
+      - __PROTOCOL__
+
+mac:
+  category: public.app-category.utilities
+  icon: build/icon.icns
+  target:
+    - target: dmg
+      arch: [universal, arm64, x64]
+  # Ad-hoc signature: runs on Apple Silicon and Intel; users approve the first
+  # launch (Privacy & Security › Open Anyway). For a Developer ID, set identity
+  # to your certificate, hardenedRuntime: true and notarize: true.
+  identity: "-"
+  hardenedRuntime: false
+  gatekeeperAssess: false
+  darkModeSupport: true
+  electronLanguages: [en, vi]
+  extendInfo:
+    # Menu bar app: no Dock icon until the window opens. Remove for a regular app.
+    LSUIElement: true
+
+dmg:
+  title: __APP_NAME__ ${version}
+  icon: build/icon.icns
+  background: build/background.tiff
+  iconSize: 112
+  window: { width: 660, height: 400 }
+  contents:
+    - { x: 180, y: 196 }
+    - { x: 480, y: 196, type: link, path: /Applications }
+
+win:
+  icon: build/icon.ico
+  electronLanguages: [en-US, vi]
+  target:
+    - target: nsis
+      arch: [x64, arm64]
+
+nsis:
+  oneClick: false
+  perMachine: false
+  allowToChangeInstallationDirectory: true
+  createDesktopShortcut: true
+  createStartMenuShortcut: true
+  installerIcon: build/icon.ico
+  uninstallerIcon: build/icon.ico
+
+linux:
+  icon: build/icon.png
+  category: Utility
+  target: [AppImage]

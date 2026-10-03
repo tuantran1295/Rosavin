@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Windows tray icon (off): outline mark on a slate badge. -->
+  <defs><linearGradient id="b" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5E6B66"/><stop offset="1" stop-color="#2E3633"/></linearGradient></defs>
+  <rect x="1" y="1" width="30" height="30" rx="7.5" fill="url(#b)"/>
+  <path d="M16 6 C16.8 12.2 18.2 13.6 24.4 14.4 C18.2 15.2 16.8 16.6 16 22.8 C15.2 16.6 13.8 15.2 7.6 14.4 C13.8 13.6 15.2 12.2 16 6 Z" fill="none" stroke="#E9EFEC" stroke-width="1.4" stroke-linejoin="round" transform="translate(0 2)"/>
+</svg>

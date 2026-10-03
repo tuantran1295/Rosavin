@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Windows tray icon (on): gold mark on an emerald badge. -->
+  <defs><linearGradient id="b" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#23805F"/><stop offset="1" stop-color="#0B3125"/></linearGradient>
+  <linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFE59A"/><stop offset="1" stop-color="#F09A41"/></linearGradient></defs>
+  <rect x="1" y="1" width="30" height="30" rx="7.5" fill="url(#b)"/>
+  <path d="M16 5 C16.8 11.6 18.4 13.2 25 14 C18.4 14.8 16.8 16.4 16 23 C15.2 16.4 13.6 14.8 7 14 C13.6 13.2 15.2 11.6 16 5 Z" fill="url(#g)" transform="translate(0 2)"/>
+</svg>

@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+  <!-- PLACEHOLDER APP ICON: macOS squircle (824 px in a 1024 canvas, 100 px margin). -->
+  <defs>
+    <linearGradient id="bg" x1="0.1" y1="0" x2="0.9" y2="1">
+      <stop offset="0" stop-color="#23805F"/><stop offset="0.5" stop-color="#124A37"/><stop offset="1" stop-color="#07231A"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="512" cy="512" r="430" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFC94D" stop-opacity="0.5"/><stop offset="0.55" stop-color="#FFB547" stop-opacity="0.12"/><stop offset="1" stop-color="#FFB547" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="g" x1="0" y1="-300" x2="0" y2="300" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFEFB5"/><stop offset="0.5" stop-color="#FAC75B"/><stop offset="1" stop-color="#EA8A3E"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="125%"><feDropShadow dx="0" dy="12" stdDeviation="14" flood-color="#000" flood-opacity="0.35"/></filter>
+    <filter id="soft" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#021009" flood-opacity="0.5"/></filter>
+    <clipPath id="sq"><rect x="100" y="100" width="824" height="824" rx="185"/></clipPath>
+    <path id="s" d="M0 -300 C 34 -92 92 -34 300 0 C 92 34 34 92 0 300 C -34 92 -92 34 -300 0 C -92 -34 -34 -92 0 -300 Z"/>
+  </defs>
+  <g filter="url(#shadow)"><rect x="100" y="100" width="824" height="824" rx="185" fill="url(#bg)"/></g>
+  <g clip-path="url(#sq)"><rect x="100" y="100" width="824" height="824" fill="url(#glow)"/><ellipse cx="400" cy="165" rx="470" ry="215" fill="#FFFFFF" opacity="0.06"/></g>
+  <g transform="translate(512 512) scale(0.95)" filter="url(#soft)">
+    <use href="#s" fill="url(#g)"/>
+    <use href="#s" transform="translate(205 -205) scale(0.2)" fill="#FFE8A3"/>
+    <use href="#s" transform="translate(-215 195) scale(0.15)" fill="#FFE8A3"/>
+  </g>
+</svg>

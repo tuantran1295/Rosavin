@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; base-uri 'none'; form-action 'none'">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>__APP_NAME__</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="../shared/format.js" defer></script>
+  <script src="icons.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <!-- Shared artwork. PLACEHOLDER MARK: replace #mark-shape with your own logo geometry
+       (keep the ids so the header and the big control pick it up). -->
+  <svg class="sr-defs" aria-hidden="true" focusable="false" width="0" height="0">
+    <defs>
+      <linearGradient id="g-mark" x1="0" y1="-300" x2="0" y2="300" gradientUnits="userSpaceOnUse">
+        <stop offset="0" stop-color="#FFEFB5"/>
+        <stop offset="0.5" stop-color="#FAC75B"/>
+        <stop offset="1" stop-color="#EA8A3E"/>
+      </linearGradient>
+      <linearGradient id="g-ring" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#FFE08A"/>
+        <stop offset="0.6" stop-color="#F5A743"/>
+        <stop offset="1" stop-color="#E2694B"/>
+      </linearGradient>
+      <path id="mark-shape" d="M0 -300 C 34 -92 92 -34 300 0 C 92 34 34 92 0 300 C -34 92 -92 34 -300 0 C -92 -34 -34 -92 0 -300 Z"/>
+      <g id="mark-on">
+        <use href="#mark-shape" fill="url(#g-mark)"/>
+        <use href="#mark-shape" transform="translate(205 -205) scale(0.2)" fill="#FFE8A3"/>
+        <use href="#mark-shape" transform="translate(-215 195) scale(0.15)" fill="#FFE8A3"/>
+      </g>
+      <g id="mark-off"><use href="#mark-shape" class="art-off-fill"/></g>
+    </defs>
+  </svg>
+
+  <div class="app" id="app">
+    <main class="panel">
+      <header class="brand drag">
+        <svg class="brand-mark" viewBox="-330 -330 660 660" aria-hidden="true"><use href="#mark-on"/></svg>
+        <span class="brand-name" id="brand-name">__APP_NAME__</span>
+        <div class="lang-switch" id="lang-switch" role="group" data-i18n-aria="ui.language"></div>
+      </header>
+
+      <section class="control" aria-live="polite">
+        <button class="orb" id="orb" type="button" aria-pressed="false" data-i18n-aria="ui.toggleOn">
+          <span class="orb-glow" aria-hidden="true"></span>
+          <svg class="orb-svg" viewBox="-110 -110 220 220" aria-hidden="true">
+            <circle class="orb-track" r="100"/>
+            <circle class="orb-progress" id="orb-progress" r="100" transform="rotate(-90)"/>
+            <g transform="scale(0.22)">
+              <g class="art-off"><use href="#mark-off"/></g>
+              <g class="art-on"><g class="art-spin"><use href="#mark-on"/></g></g>
+            </g>
+          </svg>
+        </button>
+        <p class="orb-hint" data-i18n="ui.toggleHint"></p>
+        <h1 class="status-title" id="status-title"></h1>
+        <p class="status-sub" id="status-sub"></p>
+      </section>
+
+      <section class="controls">
+        <div class="field-label" id="duration-label" data-i18n="ui.durationLabel"></div>
+        <div class="chips" id="chips" role="group" aria-labelledby="duration-label"></div>
+        <label class="setting-card" for="example-option">
+          <span class="setting-icon" data-icon="monitor"></span>
+          <span class="setting-text">
+            <span class="setting-title" data-i18n="ui.optionTitle"></span>
+            <span class="setting-hint" data-i18n="ui.optionHint"></span>
+          </span>
+          <input class="switch" type="checkbox" id="example-option" role="switch">
+        </label>
+      </section>
+
+      <footer class="panel-footer">
+        <p class="tray-hint"><span data-icon="sparkle"></span><span id="tray-hint"></span></p>
+        <div class="footer-row">
+          <label class="check">
+            <input type="checkbox" id="show-at-startup">
+            <span data-i18n="ui.showAtStartup"></span>
+          </label>
+          <div class="footer-actions">
+            <button class="prefs-button" id="open-prefs" type="button" data-icon="gear" data-i18n-title="ui.preferences"><span data-i18n="ui.preferences"></span></button>
+            <button class="icon-button" id="open-about" type="button" data-icon="info" data-i18n-title="ui.about" data-i18n-aria="ui.about"></button>
+          </div>
+        </div>
+      </footer>
+    </main>
+
+    <aside class="hero" aria-labelledby="hero-title">
+      <img class="hero-photo" src="images/hero.svg" alt="" draggable="false">
+      <div class="hero-shade" aria-hidden="true"></div>
+      <div class="hero-drag drag" aria-hidden="true"></div>
+      <div class="hero-content">
+        <p class="kicker" data-i18n="ui.heroKicker"></p>
+        <h2 class="hero-title" id="hero-title" data-i18n="ui.heroTitle"></h2>
+        <p class="hero-text" data-i18n="ui.heroText"></p>
+        <button class="cta" id="open-learn" type="button"><span data-i18n="ui.learnButton"></span><span data-icon="arrowRight"></span></button>
+      </div>
+    </aside>
+  </div>
+
+  <div class="modal" id="learn-modal" hidden>
+    <div class="modal-backdrop" data-close></div>
+    <div class="dialog dialog-xl" role="dialog" aria-modal="true" aria-labelledby="learn-title">
+      <header class="learn-header">
+        <img class="learn-banner" src="images/art-dusk.svg" alt="" draggable="false">
+        <div class="learn-heading">
+          <h2 id="learn-title" class="learn-title"></h2>
+          <p class="learn-subtitle" id="learn-subtitle"></p>
+          <p class="learn-lead" id="learn-lead"></p>
+        </div>
+        <button class="close-button" type="button" data-close data-icon="close" data-i18n-aria="ui.close" data-i18n-title="ui.close"></button>
+      </header>
+      <nav class="tabs" id="learn-tabs" role="tablist"></nav>
+      <div class="learn-body" id="learn-body"></div>
+    </div>
+  </div>
+
+  <div class="modal" id="prefs-modal" hidden>
+    <div class="modal-backdrop" data-close></div>
+    <div class="dialog dialog-md" role="dialog" aria-modal="true" aria-labelledby="prefs-title">
+      <header class="dialog-header">
+        <h2 id="prefs-title" data-i18n="prefs.title"></h2>
+        <button class="close-button" type="button" data-close data-icon="close" data-i18n-aria="ui.close" data-i18n-title="ui.close"></button>
+      </header>
+      <div class="dialog-body prefs" id="prefs-body"></div>
+    </div>
+  </div>
+
+  <div class="modal" id="about-modal" hidden>
+    <div class="modal-backdrop" data-close></div>
+    <div class="dialog dialog-sm about" role="dialog" aria-modal="true" aria-labelledby="about-title">
+      <button class="close-button" type="button" data-close data-icon="close" data-i18n-aria="ui.close" data-i18n-title="ui.close"></button>
+      <img class="about-icon" src="images/brand/icon-256.png" alt="" width="104" height="104">
+      <h2 id="about-title" class="about-name"></h2>
+      <p class="about-version" id="about-version"></p>
+      <p class="about-tagline" data-i18n="app.tagline"></p>
+      <p class="about-meta" id="about-built"></p>
+      <p class="about-meta" data-i18n="about.license"></p>
+      <p class="about-meta" data-i18n="about.credits"></p>
+      <div class="about-actions">
+        <button class="button" type="button" id="about-quit" data-icon="power"><span data-i18n="tray.quit"></span></button>
+        <button class="button button-primary" type="button" data-close><span data-i18n="ui.close"></span></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="lightbox" id="lightbox" hidden>
+    <div class="modal-backdrop" data-close></div>
+    <figure class="lightbox-figure" role="dialog" aria-modal="true" aria-labelledby="lightbox-caption">
+      <img id="lightbox-img" src="" alt="">
+      <figcaption><span id="lightbox-caption"></span><button class="link-button" type="button" id="lightbox-credit"></button></figcaption>
+      <button class="close-button" type="button" data-close data-icon="close" data-i18n-aria="ui.close" data-i18n-title="ui.close"></button>
+    </figure>
+  </div>
+</body>
+</html>

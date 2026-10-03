@@ -1,0 +1,16 @@
+{
+  "name": "__APP_NAME__",
+  "tagline": "__TAGLINE__",
+  "wordmarkFont": "src/renderer/fonts/Fraunces-SemiBold.ttf",
+  "uiFont": "src/renderer/fonts/BeVietnamPro-Medium.ttf",
+  "taglineFont": "src/renderer/fonts/BeVietnamPro-SemiBold.ttf",
+  "colors": {
+    "ink": "#0F3D2E",
+    "inkOnDark": "#FFF6E2",
+    "accent": "#B26B1F",
+    "accentOnDark": "#F6C35C",
+    "dmgBackground": ["#FDF9F0", "#F1E7D2"],
+    "dmgArrow": ["#E9A23B", "#1F7356"]
+  },
+  "dmgText": "Drag __APP_NAME__ into Applications to install"
+}
