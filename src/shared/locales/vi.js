@@ -48,6 +48,14 @@ module.exports = {
     stillRunningTitle: 'Rosavin vẫn đang chạy',
     stillRunningMac: 'Hãy tìm biểu tượng hoa hướng dương trên thanh menu. Nhấn vào đó để bật hoặc tắt Rosavin.',
     stillRunningWin: 'Hãy tìm biểu tượng hoa hướng dương ở khay hệ thống (có thể cần nhấn ^). Nhấn vào đó để bật hoặc tắt Rosavin.',
+    sleptTitleMac: 'Máy Mac vừa ngủ',
+    sleptTitleWin: 'Máy tính vừa ngủ',
+    sleptManual: 'Máy nhận lệnh Ngủ (menu Apple, nút nguồn hoặc phím tắt), và macOS luôn làm theo lệnh này. Muốn rời máy mà tác vụ vẫn chạy, hãy khóa màn hình bằng ⌃⌘Q.',
+    sleptLid: 'Nắp máy đã gập. MacBook sẽ ngủ khi gập nắp, trừ khi đang cắm sạc và nối màn hình ngoài. Hãy để mở nắp và khóa màn hình bằng ⌃⌘Q.',
+    sleptBattery: 'Pin gần cạn nên macOS cho máy ngủ. Hãy cắm sạc để máy luôn thức.',
+    sleptThermal: 'Máy quá nóng nên macOS cho máy ngủ để bảo vệ máy.',
+    sleptOtherMac: 'Rosavin chặn máy tự ngủ khi để không, nhưng không chặn được lệnh ngủ chủ động hay bắt buộc. Muốn rời máy mà tác vụ vẫn chạy, hãy khóa màn hình bằng ⌃⌘Q.',
+    sleptOtherWin: 'Rosavin chặn máy tự ngủ khi để không, nhưng chọn Ngủ, gập nắp hay pin yếu vẫn khiến máy ngủ. Muốn rời máy, hãy khóa bằng Win+L.',
   },
 
   appMenu: {

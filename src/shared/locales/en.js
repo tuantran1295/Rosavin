@@ -49,6 +49,14 @@ module.exports = {
     stillRunningTitle: 'Rosavin is still running',
     stillRunningMac: 'Look for the sunflower icon in the menu bar. Click it to turn Rosavin on or off.',
     stillRunningWin: 'Look for the sunflower icon in the system tray (you may need to click ^). Click it to turn Rosavin on or off.',
+    sleptTitleMac: 'Your Mac went to sleep',
+    sleptTitleWin: 'Your PC went to sleep',
+    sleptManual: 'Sleep was chosen (Apple menu, power button or a shortcut), and macOS always obeys it. To step away while tasks keep running, lock the screen with ⌃⌘Q instead.',
+    sleptLid: 'The lid was closed. A MacBook sleeps then unless it is on power with an external display. Keep the lid open and lock the screen with ⌃⌘Q instead.',
+    sleptBattery: 'The battery was almost empty, so macOS put your Mac to sleep. Plug it in to keep it awake.',
+    sleptThermal: 'Your Mac got too hot, so macOS put it to sleep to protect it.',
+    sleptOtherMac: 'Rosavin stops automatic sleep, not a sleep that is chosen or forced. To step away while tasks keep running, lock the screen with ⌃⌘Q.',
+    sleptOtherWin: 'Rosavin stops automatic sleep, but choosing Sleep, closing the lid or a low battery still puts your PC to sleep. To step away, lock it with Win+L.',
   },
 
   appMenu: {

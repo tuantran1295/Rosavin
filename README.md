@@ -45,6 +45,7 @@ The app is named after **rosavin**, the signature compound of *Rhodiola rosea*, 
 - **Timers:** keep awake indefinitely or for 5 min, 10 min, 15 min, 30 min, 1 h, 2 h, 3 h, 5 h or 8 h. Rosavin switches itself off and can notify you.
 - **Countdown next to the icon** (macOS), e.g. `38m`.
 - **Keep screen on** (no dimming, no screen saver) **or system only** (the display may sleep, the computer keeps running for downloads and renders).
+- **Explains surprise sleeps:** if the computer is put to sleep during a session anyway (Sleep chosen, lid closed, battery almost empty), Rosavin says why once it wakes up.
 - **Beautiful main window** with quick-duration chips, a progress ring and a Rhodiola rosea panel.
 - **Rhodiola rosea guide:** benefits with evidence levels, how it keeps you awake, safe use, a photo gallery and 19 scientific sources.
 - **Preferences:** start at login (on by default), turn on at launch, default duration, click behaviour, notifications, theme (system / light / dark).
@@ -247,7 +248,7 @@ Rosavin uses Electron's [`powerSaveBlocker`](https://www.electronjs.org/docs/lat
 
 When Rosavin is off, or you quit it, the request is released immediately and your normal energy settings apply again.
 
-> **Note:** No app can stop a MacBook from sleeping when you close the lid, unless it is connected to power and an external display (clamshell mode). That is a macOS hardware rule.
+> **Note:** Rosavin stops *automatic* sleep. No app can override a sleep that is chosen or forced: **Sleep** in the Apple menu, the power button, closing a MacBook lid (unless it is on power with an external display, known as clamshell mode), or a nearly empty battery. To step away while downloads and other tasks keep running, **lock the screen** instead: ⌃⌘Q (Apple menu › Lock Screen) on a Mac, Win+L on Windows. If the computer sleeps during a session anyway, Rosavin reads the reason from `pmset -g log` and tells you once it wakes up.
 
 ### Project structure
 

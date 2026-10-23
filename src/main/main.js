@@ -19,6 +19,7 @@ const { createMainWindow, isSafeExternalUrl, backgroundColor } = require('./wind
 const { buildAppMenu } = require('./app-menu');
 const { resolveLocale, getDictionary, t, SUPPORTED } = require('./i18n');
 const { PROTOCOL, parseArgv, parseUrl } = require('./commands');
+const { getSleepReason } = require('./sleep-reason');
 const { DURATION_PRESETS, QUICK_DURATIONS, formatDuration } = require('../shared/time');
 const { IMAGES, SOURCES } = require('../shared/content');
 
@@ -35,7 +36,10 @@ let trayController = null;
 let mainWindow = null;
 let locale = 'en';
 let dict = getDictionary('en');
+let sleptDuringSession = null; // { at } when the computer went to sleep while Rosavin was on
 const pendingCommands = [];
+// Test hooks for scripts/e2e.mjs and scripts/screenshots.mjs (never set in normal use).
+const testHooks = process.env.ROSAVIN_E2E === '1' ? { notifications: [], pmsetLog: null } : null;
 
 // ---------------------------------------------------------------------------
 // Single instance: a second launch forwards its arguments to the running app.
@@ -104,14 +108,20 @@ function onReady() {
     syncLoginItem();
   }
 
-  powerMonitor.on('resume', () => keepAwake.check());
+  powerMonitor.on('suspend', () => {
+    sleptDuringSession = keepAwake.active ? { at: Date.now() } : null;
+  });
+  powerMonitor.on('resume', () => {
+    keepAwake.check();
+    if (sleptDuringSession) explainSleep(sleptDuringSession.at).catch((err) => console.error('[sleep] could not explain', err));
+    sleptDuringSession = null;
+  });
   nativeTheme.on('updated', () => {
     if (mainWindow && !mainWindow.isDestroyed()) mainWindow.setBackgroundColor(backgroundColor());
   });
 
-  if (process.env.ROSAVIN_E2E === '1') {
-    // Test hooks for scripts/e2e.mjs and scripts/screenshots.mjs (never set in normal use).
-    global.__rosavin = { keepAwake, settings, trayController, getWindow: () => mainWindow, showWindow, activate, deactivate };
+  if (testHooks) {
+    global.__rosavin = { keepAwake, settings, trayController, getWindow: () => mainWindow, showWindow, activate, deactivate, test: testHooks };
   }
 
   const { commands, hidden } = parseArgv(process.argv);
@@ -211,11 +221,23 @@ function setDockVisible(visible) {
 function showTrayHintOnce() {
   if (settings.get('trayHintShown') || !Notification.isSupported()) return;
   settings.set({ trayHintShown: true });
-  new Notification({
+  notify({
     title: t(dict, 'notifications.stillRunningTitle'),
     body: t(dict, isMac ? 'notifications.stillRunningMac' : 'notifications.stillRunningWin'),
     silent: true,
-  }).show();
+  });
+}
+
+function notify({ title, body, silent = false, onClick }) {
+  if (testHooks) {
+    // Tests read notifications here instead of filling the real Notification Center.
+    testHooks.notifications.push({ title, body });
+    return;
+  }
+  if (!Notification.isSupported()) return;
+  const notification = new Notification({ title, body, silent });
+  if (onClick) notification.on('click', onClick);
+  notification.show();
 }
 
 // ---------------------------------------------------------------------------
@@ -227,13 +249,28 @@ function onStateChange(state) {
 }
 
 function onFinished({ durationMinutes }) {
-  if (!settings.get('notifyWhenFinished') || !Notification.isSupported()) return;
-  const notification = new Notification({
+  if (!settings.get('notifyWhenFinished')) return;
+  notify({
     title: t(dict, 'notifications.finishedTitle'),
     body: t(dict, 'notifications.finishedBody', { duration: formatDuration(durationMinutes, dict) }),
+    onClick: () => showWindow(),
   });
-  notification.on('click', () => showWindow());
-  notification.show();
+}
+
+// Rosavin blocks idle sleep only. If the computer slept during a session anyway
+// (Sleep was chosen, the lid was closed, the battery ran low), say why after it
+// wakes up, so it doesn't look as if Rosavin stopped working.
+const SLEEP_MESSAGES = { manual: 'sleptManual', lid: 'sleptLid', battery: 'sleptBattery', thermal: 'sleptThermal' };
+
+async function explainSleep(since) {
+  const read = testHooks?.pmsetLog != null ? async () => testHooks.pmsetLog : undefined;
+  const sleep = await getSleepReason(since, read ? { read } : {});
+  const message = SLEEP_MESSAGES[sleep?.kind] ?? (isMac ? 'sleptOtherMac' : 'sleptOtherWin');
+  notify({
+    title: t(dict, isMac ? 'notifications.sleptTitleMac' : 'notifications.sleptTitleWin'),
+    body: t(dict, `notifications.${message}`),
+    onClick: () => showWindow(),
+  });
 }
 
 function onSettingsChange(changed, values) {

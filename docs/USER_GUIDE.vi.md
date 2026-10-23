@@ -150,6 +150,8 @@ Chọn thời lượng mới khi Rosavin đang bật sẽ bắt đầu lại h�
 
 Đổi chế độ từ menu (**Giữ màn hình sáng**) hoặc bằng công tắc trong cửa sổ. Bạn có thể đổi ngay cả khi Rosavin đang bật; phiên và hẹn giờ hiện tại vẫn tiếp tục.
 
+**Rời máy một lúc?** Hãy khóa màn hình bằng **⌃⌘Q** (menu Apple › **Khóa màn hình**), hoặc **Win+L** trên Windows. Khóa màn hình không làm dừng tác vụ nào. Đừng chọn **Ngủ**: lệnh này vẫn cho máy ngủ dù Rosavin đang bật.
+
 ## Tìm hiểu về Rhodiola rosea
 
 Rosavin được đặt theo tên **rosavin**, hoạt chất đặc trưng của *Rhodiola rosea* (hồng cảnh thiên), loài "rễ vàng" của vùng Bắc Cực. Nhấn **Khám phá lợi ích** trong cửa sổ (hoặc chọn **Lợi ích của Rhodiola rosea…** trong menu) để mở phần giới thiệu có minh họa, gồm sáu thẻ. Đóng lại bằng nút **×** hoặc phím **Esc**.
@@ -238,8 +240,14 @@ Nhấn **(i)** trong cửa sổ hoặc chọn **Giới thiệu Rosavin** trong m
 **Tôi không thấy biểu tượng hoa hướng dương trên thanh menu.**
 Trên MacBook có "tai thỏ", các biểu tượng có thể bị che khi thanh menu quá đông. Hãy thoát bớt vài ứng dụng trên thanh menu. Nếu bạn dùng ứng dụng sắp xếp thanh menu (như Bartender hay Ice), hãy kiểm tra phần biểu tượng bị ẩn. Bạn luôn có thể mở cửa sổ Rosavin từ thư mục Ứng dụng.
 
-**MacBook vẫn ngủ khi tôi gập nắp.**
-Đây là quy tắc của macOS với mọi ứng dụng: MacBook sẽ ngủ khi gập nắp, trừ khi đang cắm sạc và nối màn hình ngoài. Hãy để nắp mở, hoặc dùng chế độ gập nắp với màn hình ngoài.
+**Máy Mac vẫn ngủ dù Rosavin đang bật.**
+Rosavin chặn máy *tự* ngủ khi bạn để không. Không ứng dụng nào chặn được lệnh ngủ chủ động hay bắt buộc:
+
+- chọn **Ngủ** trong menu Apple, nhấn nút nguồn hoặc dùng phím tắt ngủ;
+- gập nắp MacBook, trừ khi đang cắm sạc và nối màn hình ngoài (chế độ gập nắp);
+- pin gần cạn hoặc máy quá nóng.
+
+Muốn rời máy mà tác vụ vẫn chạy, hãy khóa màn hình bằng **⌃⌘Q** (menu Apple › **Khóa màn hình**). Nếu máy vẫn ngủ trong lúc Rosavin bật, sau khi máy thức dậy Rosavin sẽ hiện thông báo cho biết lý do.
 
 **Màn hình vẫn tắt.**
 Hãy chắc chắn mục **Giữ màn hình sáng** đang được chọn. Ở chế độ *chỉ giữ hệ thống*, màn hình có thể tắt trong khi máy tính vẫn chạy.

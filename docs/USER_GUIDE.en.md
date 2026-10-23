@@ -150,6 +150,8 @@ Choosing a new duration while Rosavin is on restarts the timer from now. If your
 
 Switch modes from the menu (**Keep Screen On**) or with the switch in the window. You can switch while Rosavin is on; the current session and timer continue.
 
+**Stepping away?** Lock the screen with **⌃⌘Q** (Apple menu › **Lock Screen**), or **Win+L** on Windows. Locking keeps everything running. Don't choose **Sleep**: that puts the computer to sleep even while Rosavin is on.
+
 ## Learn about Rhodiola rosea
 
 Rosavin is named after **rosavin**, the signature compound of *Rhodiola rosea*, the "golden root" from the Arctic. Click **Discover the benefits** in the window (or choose **Rhodiola Rosea Benefits…** in the menu) to open an illustrated guide with six tabs. Close it with the **×** button or the **Esc** key.
@@ -238,8 +240,14 @@ To quit, choose **Quit Rosavin** in the menu, click **Quit Rosavin** in the Abou
 **I can't see the sunflower icon in the menu bar.**
 On MacBooks with a notch, menu bar icons can hide behind it when the menu bar is crowded. Quit a few menu bar apps or use a smaller font size for menu bar items. If you use a menu bar organiser (such as Bartender or Ice), check its hidden section. You can always open Rosavin's window from Applications.
 
-**My MacBook still sleeps when I close the lid.**
-That is a macOS rule for every app: a MacBook sleeps when its lid is closed unless it is connected to power and an external display. Keep the lid open, or use clamshell mode.
+**My Mac still went to sleep while Rosavin was on.**
+Rosavin stops *automatic* sleep, the kind that happens when you leave the computer alone. No app can override a sleep that is chosen or forced:
+
+- **Sleep** in the Apple menu, the power button, or a sleep shortcut;
+- closing a MacBook lid, unless it is connected to power and an external display (clamshell mode);
+- a nearly empty battery, or overheating.
+
+To step away while tasks keep running, lock the screen with **⌃⌘Q** (Apple menu › **Lock Screen**) instead. If the computer sleeps during a session anyway, Rosavin shows a notification after it wakes up that says why.
 
 **The screen still turns off.**
 Make sure **Keep Screen On** is ticked. In *system only* mode the display may sleep while the computer keeps running.

@@ -1,7 +1,7 @@
 {
   "name": "rosavin",
   "productName": "Rosavin",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Rosavin keeps your Mac or Windows PC awake. A tiny menu bar / system tray app with a golden-root soul.",
   "main": "src/main/main.js",
   "author": "Rosavin contributors",

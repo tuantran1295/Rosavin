@@ -195,6 +195,42 @@ await check('timed sessions end automatically', async () => {
   return 'ended after ~3 s';
 });
 
+await check('a sleep during a session is explained after waking', async () => {
+  const pad = (n) => String(n).padStart(2, '0');
+  const stamp = (d) => {
+    const offset = -d.getTimezoneOffset();
+    const zone = `${offset >= 0 ? '+' : '-'}${pad(Math.floor(Math.abs(offset) / 60))}${pad(Math.abs(offset) % 60)}`;
+    return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())} ${pad(d.getHours())}:${pad(d.getMinutes())}:${pad(d.getSeconds())} ${zone}`;
+  };
+  // A `pmset -g log` entry for a sleep that starts right after the simulated suspend.
+  const sleepLog = (reason) => `${stamp(new Date(Date.now() + 2000))} Sleep               \tEntering Sleep state due to '${reason}':TCPKeepAlive=active Using AC (Charge:90%) 60 secs`;
+  const sleepAndWake = (log) =>
+    app.evaluate(({ powerMonitor }, text) => {
+      global.__rosavin.test.pmsetLog = text;
+      powerMonitor.emit('suspend');
+      powerMonitor.emit('resume');
+    }, log);
+  const notes = () => app.evaluate(() => global.__rosavin.test.notifications.map((n) => `${n.title} | ${n.body}`));
+  const title = isMac ? en.notifications.sleptTitleMac : en.notifications.sleptTitleWin;
+  const first = (await notes()).length;
+
+  await sleepAndWake(sleepLog('Software Sleep pid=473'));
+  await sleep(500);
+  assert((await notes()).length === first, 'explained a sleep while Rosavin was off');
+
+  await app.evaluate(() => global.__rosavin.activate(0));
+  await waitFor(async () => (await state()).active);
+  await sleepAndWake(sleepLog('Software Sleep pid=473'));
+  const manual = await waitFor(async () => (await notes())[first], { message: 'no explanation after a manual sleep' });
+  assert(manual === `${title} | ${isMac ? en.notifications.sleptManual : en.notifications.sleptOtherWin}`, manual);
+  await sleepAndWake(sleepLog('Clamshell Sleep'));
+  const lid = await waitFor(async () => (await notes())[first + 1], { message: 'no explanation after closing the lid' });
+  assert(lid === `${title} | ${isMac ? en.notifications.sleptLid : en.notifications.sleptOtherWin}`, lid);
+  assert((await state()).active, 'the session should continue after waking');
+  await app.evaluate(() => global.__rosavin.deactivate());
+  return `"${manual.slice(0, 60)}…"`;
+});
+
 await check('command line: second instance forwards --activate=15 / --deactivate', async () => {
   const code = await runSecondInstance(['--activate=15']);
   const s = await waitFor(async () => {
